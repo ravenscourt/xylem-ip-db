@@ -1,0 +1,14 @@
+# Additions for Russia (RU)
+# Each line is a CIDR range to include alongside RIPE data.
+# The comment above each range is used as its label in generated files.
+
+# Yandex DNS
+77.88.8.8/32
+77.88.8.1/32
+77.88.8.88/32
+77.88.8.2/32
+77.88.8.7/32
+77.88.8.3/32
+
+# SkyDNS
+193.58.251.251/32

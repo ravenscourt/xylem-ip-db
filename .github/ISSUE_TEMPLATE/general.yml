@@ -1,0 +1,22 @@
+name: General Issue
+description: Report a bug, suggest an improvement, or ask a question.
+labels: []
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - Bug report
+        - Feature request
+        - Question
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the issue or suggestion in detail.
+    validations:
+      required: true

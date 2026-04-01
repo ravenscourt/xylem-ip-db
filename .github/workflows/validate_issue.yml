@@ -1,0 +1,28 @@
+name: Validate Issue Report
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  validate:
+    name: Check Reported Range
+    if: >-
+      contains(github.event.issue.labels.*.name, 'addition') ||
+      contains(github.event.issue.labels.*.name, 'exemption')
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/validate_issue.py > /tmp/comment.txt
+          if [ -s /tmp/comment.txt ]; then
+            gh issue comment "${{ github.event.issue.number }}" \
+              --body-file /tmp/comment.txt
+          fi

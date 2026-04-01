@@ -1,0 +1,31 @@
+name: Exemption Request
+description: Request an IP range to be excluded from a country's list
+labels: ["exemption"]
+body:
+  - type: dropdown
+    id: country
+    attributes:
+      label: Country
+      options:
+        - "IR - Iran"
+        - "RU - Russia"
+        - "CN - China"
+    validations:
+      required: true
+
+  - type: input
+    id: ip_range
+    attributes:
+      label: IP or CIDR Range
+      description: "A single IP (e.g. 1.2.3.4) or CIDR range (e.g. 1.2.3.0/24)."
+      placeholder: "1.2.3.0/24"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason
+      description: "Why should this range be excluded from the list?"
+    validations:
+      required: true

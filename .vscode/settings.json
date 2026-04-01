@@ -1,0 +1,19 @@
+{
+  "files.exclude": {
+    ".venv": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/.DS_Store": true,
+    "**/.ruff_cache": true
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "always",
+      "source.organizeImports.ruff": "always"
+    }
+  },
+  "python.testing.pytestEnabled": true,
+  "just.languageServer.enabled": false
+}

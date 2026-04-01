@@ -1,0 +1,41 @@
+name: Update IP Lists
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "overrides/**"
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: update-lists
+  cancel-in-progress: true
+
+jobs:
+  update:
+    name: Generate Lists
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Generate Lists
+        run: python3 scripts/generate.py
+
+      - name: Commit Changes
+        run: |
+          git config user.email "272345489+ravenscourt@users.noreply.github.com"
+          git config user.name "Github Workflow"
+          git add --force lists/ routeros/ sing-box/
+          git diff-index --quiet HEAD || git commit -m "Update IP lists"
+          git push

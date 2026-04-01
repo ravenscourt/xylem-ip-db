@@ -1,0 +1,6 @@
+# Exemptions for Iran (IR)
+# Each line is a CIDR range to exclude from the generated list.
+# The comment above each range is used as its label in generated files.
+
+# CloudiNow Service Cloud
+85.133.246.0/24

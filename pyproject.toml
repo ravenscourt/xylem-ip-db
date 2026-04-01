@@ -1,0 +1,21 @@
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+exclude = [
+    ".venv",
+    ".ruff_cache",
+    "__pycache__",
+    "lists",
+    "routeros",
+    "sing-box",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["utils", "generate", "validate_issue", "fetch_ir", "fetch_ru", "fetch_cn"]
+
+[tool.pytest.ini_options]
+testpaths = ["scripts"]

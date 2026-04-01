@@ -1,0 +1,3 @@
+# Exemptions for China (CN)
+# Each line is a CIDR range to exclude from the generated list.
+# The comment above each range is used as its label in generated files.

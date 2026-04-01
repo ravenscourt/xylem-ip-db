@@ -1,0 +1,21 @@
+# Additions for China (CN)
+# Each line is a CIDR range to include alongside RIPE data.
+# The comment above each range is used as its label in generated files.
+
+# AliDNS (Alibaba)
+223.5.5.5/32
+223.6.6.6/32
+
+# DNSPod (Tencent)
+119.29.29.29/32
+
+# Baidu DNS
+180.76.76.76/32
+
+# CNNIC SDNS
+1.2.4.8/32
+210.2.4.8/32
+
+# 114DNS
+114.114.114.114/32
+114.114.115.115/32

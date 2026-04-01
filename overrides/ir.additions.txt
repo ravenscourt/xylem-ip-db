@@ -1,0 +1,28 @@
+# Additions for Iran (IR)
+# Each line is a CIDR range to include alongside RIPE data.
+# The comment above each range is used as its label in generated files.
+
+# Intranet
+10.0.0.0/8
+
+# Mobile Network CGNAT
+100.64.0.0/10
+
+# TIC DNS
+2.189.44.44/32
+2.189.44.45/32
+217.218.127.127/32
+217.218.155.155/32
+
+# Shecan DNS
+178.22.122.100/32
+185.51.200.2/32
+
+# Begzar DNS
+185.55.226.26/32
+185.55.225.25/32
+
+# Respina ISP
+5.160.0.0/16
+46.209.0.0/16
+77.104.64.0/18

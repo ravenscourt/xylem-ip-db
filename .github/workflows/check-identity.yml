@@ -1,0 +1,40 @@
+name: Check Commit Identity
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  check-identity:
+    name: Verify Author Identity
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check commit authors
+        run: |
+          ALLOWED_EMAIL="272345489+ravenscourt@users.noreply.github.com"
+          RANGE="${{ github.event.before }}..${{ github.event.after }}"
+
+          FAILED=0
+          while IFS= read -r line; do
+            EMAIL=$(echo "$line" | cut -d'|' -f1)
+            HASH=$(echo "$line" | cut -d'|' -f2)
+
+            if [ "$EMAIL" != "$ALLOWED_EMAIL" ]; then
+              echo "::error::Commit $HASH has unauthorized email: $EMAIL"
+              FAILED=1
+            fi
+          done < <(git log --format='%ae|%h' "$RANGE")
+
+          if [ "$FAILED" -eq 1 ]; then
+            echo ""
+            echo "Only commits from the project maintainer can be pushed directly to main."
+            echo "External contributions must be submitted via pull request and squash-merged."
+            exit 1
+          fi
+
+          echo "All commits have valid identity."
