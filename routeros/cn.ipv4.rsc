@@ -1,7 +1,7 @@
 # Country: China (CN)
 # Type: IPv4
-# Last updated: 2026-05-24T19:19:20Z
-# Hash: sha256:9ab0f96a66c7230ebb10742e81ddbad7fed1c02238be54c9f7e76ff96e03180b
+# Last updated: 2026-05-25T03:44:48Z
+# Hash: sha256:f3da8413f71907411977b4723eac571978745bc1fc4798d0904bc1d567c11d2a
 
 /ip firewall address-list remove [/ip firewall address-list find list=CNv4]
 /ip firewall address-list
@@ -1547,21 +1547,7 @@
 :do { add address=111.235.180.0/23 list=CNv4} on-error={}
 :do { add address=111.235.182.0/24 list=CNv4} on-error={}
 :do { add address=112.0.0.0/10 list=CNv4} on-error={}
-:do { add address=112.64.0.0/16 list=CNv4} on-error={}
-:do { add address=112.65.0.0/17 list=CNv4} on-error={}
-:do { add address=112.65.128.0/18 list=CNv4} on-error={}
-:do { add address=112.65.192.0/22 list=CNv4} on-error={}
-:do { add address=112.65.196.0/23 list=CNv4} on-error={}
-:do { add address=112.65.199.0/24 list=CNv4} on-error={}
-:do { add address=112.65.200.0/21 list=CNv4} on-error={}
-:do { add address=112.65.208.0/20 list=CNv4} on-error={}
-:do { add address=112.65.224.0/21 list=CNv4} on-error={}
-:do { add address=112.65.232.0/23 list=CNv4} on-error={}
-:do { add address=112.65.235.0/24 list=CNv4} on-error={}
-:do { add address=112.65.237.0/24 list=CNv4} on-error={}
-:do { add address=112.65.238.0/23 list=CNv4} on-error={}
-:do { add address=112.65.240.0/20 list=CNv4} on-error={}
-:do { add address=112.66.0.0/15 list=CNv4} on-error={}
+:do { add address=112.64.0.0/14 list=CNv4} on-error={}
 :do { add address=112.74.0.0/16 list=CNv4} on-error={}
 :do { add address=112.80.0.0/12 list=CNv4} on-error={}
 :do { add address=112.96.0.0/13 list=CNv4} on-error={}
@@ -2285,7 +2271,6 @@
 :do { add address=122.49.32.0/20 list=CNv4} on-error={}
 :do { add address=122.51.0.0/16 list=CNv4} on-error={}
 :do { add address=122.70.0.0/15 list=CNv4} on-error={}
-:do { add address=122.84.0.0/16 list=CNv4} on-error={}
 :do { add address=122.90.0.0/16 list=CNv4} on-error={}
 :do { add address=122.91.0.0/17 list=CNv4} on-error={}
 :do { add address=122.94.0.0/16 list=CNv4} on-error={}
