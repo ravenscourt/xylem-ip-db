@@ -59,9 +59,20 @@ IPv4 example (Iran):
       :if ([/file get $fileName size] > 0) do={
         /ip firewall address-list remove [/ip firewall address-list find list=$listName]
         :local content [/file get $fileName contents]
-        :local lines [:toarray $content]
         :local comment ""
-        :foreach line in=$lines do={
+        :while ([:len $content] > 0) do={
+          :local pos [:find $content "\n"]
+          :local line ""
+          :if ($pos = nil) do={
+            :set line $content
+            :set content ""
+          } else={
+            :set line [:pick $content 0 $pos]
+            :set content [:pick $content ($pos + 1) [:len $content]]
+          }
+          :if (([:len $line] > 0) && ([:pick $line ([:len $line] - 1) [:len $line]] = "\r")) do={
+            :set line [:pick $line 0 ([:len $line] - 1)]
+          }
           :if ([:len $line] = 0) do={
             :set comment ""
           } else={
@@ -107,9 +118,20 @@ For IPv6, use `/ipv6 firewall address-list` instead:
       :if ([/file get $fileName size] > 0) do={
         /ipv6 firewall address-list remove [/ipv6 firewall address-list find list=$listName]
         :local content [/file get $fileName contents]
-        :local lines [:toarray $content]
         :local comment ""
-        :foreach line in=$lines do={
+        :while ([:len $content] > 0) do={
+          :local pos [:find $content "\n"]
+          :local line ""
+          :if ($pos = nil) do={
+            :set line $content
+            :set content ""
+          } else={
+            :set line [:pick $content 0 $pos]
+            :set content [:pick $content ($pos + 1) [:len $content]]
+          }
+          :if (([:len $line] > 0) && ([:pick $line ([:len $line] - 1) [:len $line]] = "\r")) do={
+            :set line [:pick $line 0 ([:len $line] - 1)]
+          }
           :if ([:len $line] = 0) do={
             :set comment ""
           } else={
