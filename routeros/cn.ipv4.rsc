@@ -1,7 +1,7 @@
 # Country: China (CN)
 # Type: IPv4
-# Last updated: 2026-06-02T10:28:51Z
-# Hash: sha256:84a9a1d3a9861ce812509441ed818503a9bcaddee87397d6fc4a76520e8d1480
+# Last updated: 2026-06-02T20:54:42Z
+# Hash: sha256:9c694066c8d368a03fe9e22128e115b1bcf3a9202527f75fec2c05ba66cd514c
 
 /ip firewall address-list remove [/ip firewall address-list find list=CNv4]
 /ip firewall address-list
@@ -1360,6 +1360,7 @@
 :do { add address=103.251.207.0/24 list=CNv4} on-error={}
 :do { add address=103.251.240.0/22 list=CNv4} on-error={}
 :do { add address=103.252.36.0/24 list=CNv4} on-error={}
+:do { add address=103.252.172.0/22 list=CNv4} on-error={}
 :do { add address=103.252.248.0/22 list=CNv4} on-error={}
 :do { add address=103.253.60.0/22 list=CNv4} on-error={}
 :do { add address=103.253.204.0/22 list=CNv4} on-error={}
