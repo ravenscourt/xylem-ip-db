@@ -1,7 +1,7 @@
 # Country: China (CN)
 # Type: IPv4
-# Last updated: 2026-06-03T04:06:45Z
-# Hash: sha256:68b9f6fca9131fc39580980384aa3be3f256f075ab355b645a49f468a8ea27cc
+# Last updated: 2026-06-03T11:06:31Z
+# Hash: sha256:9b2bc6cec07a39fe0061180a95b64e4ec574d192ea0554e3114d334acdc1072e
 
 /ip firewall address-list remove [/ip firewall address-list find list=CNv4]
 /ip firewall address-list
@@ -122,7 +122,6 @@
 :do { add address=36.255.116.0/22 list=CNv4} on-error={}
 :do { add address=36.255.128.0/22 list=CNv4} on-error={}
 :do { add address=36.255.164.0/24 list=CNv4} on-error={}
-:do { add address=38.76.140.0/23 list=CNv4} on-error={}
 :do { add address=39.64.0.0/11 list=CNv4} on-error={}
 :do { add address=39.96.0.0/13 list=CNv4} on-error={}
 :do { add address=39.104.0.0/14 list=CNv4} on-error={}
@@ -1146,7 +1145,6 @@
 :do { add address=103.174.94.0/23 list=CNv4} on-error={}
 :do { add address=103.179.78.0/23 list=CNv4} on-error={}
 :do { add address=103.181.234.0/24 list=CNv4} on-error={}
-:do { add address=103.182.96.0/23 list=CNv4} on-error={}
 :do { add address=103.183.66.0/23 list=CNv4} on-error={}
 :do { add address=103.183.122.0/23 list=CNv4} on-error={}
 :do { add address=103.183.124.0/23 list=CNv4} on-error={}
@@ -2615,7 +2613,6 @@
 :do { add address=150.242.244.0/22 list=CNv4} on-error={}
 :do { add address=150.242.248.0/22 list=CNv4} on-error={}
 :do { add address=150.255.0.0/16 list=CNv4} on-error={}
-:do { add address=151.242.180.0/22 list=CNv4} on-error={}
 :do { add address=152.104.128.0/17 list=CNv4} on-error={}
 :do { add address=152.136.0.0/16 list=CNv4} on-error={}
 :do { add address=153.0.0.0/16 list=CNv4} on-error={}
@@ -2727,7 +2724,6 @@
 :do { add address=175.16.0.0/13 list=CNv4} on-error={}
 :do { add address=175.24.0.0/15 list=CNv4} on-error={}
 :do { add address=175.27.0.0/16 list=CNv4} on-error={}
-:do { add address=175.29.22.0/23 list=CNv4} on-error={}
 :do { add address=175.30.0.0/15 list=CNv4} on-error={}
 :do { add address=175.42.0.0/15 list=CNv4} on-error={}
 :do { add address=175.44.0.0/16 list=CNv4} on-error={}
