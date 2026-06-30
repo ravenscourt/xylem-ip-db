@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv4
-# Last updated: 2026-06-30T03:37:40Z
-# Hash: sha256:493e716fca7f342cb5a317584b0afe435f65f0a7d82aba9bd29600c04413a702
+# Last updated: 2026-06-30T09:42:03Z
+# Hash: sha256:7ce14902f89dd4690c5c0be65442aa3e56ab3f74697059acdbe84500fabaeccb
 
 /ip firewall address-list remove [/ip firewall address-list find list=IRv4]
 /ip firewall address-list
@@ -1547,6 +1547,7 @@
 :do { add address=185.128.164.0/22 list=IRv4} on-error={}
 :do { add address=185.129.80.0/23 list=IRv4} on-error={}
 :do { add address=185.129.83.0/24 list=IRv4} on-error={}
+:do { add address=185.129.109.0/24 list=IRv4} on-error={}
 :do { add address=185.129.116.0/22 list=IRv4} on-error={}
 :do { add address=185.129.168.0/22 list=IRv4} on-error={}
 :do { add address=185.129.184.0/21 list=IRv4} on-error={}
