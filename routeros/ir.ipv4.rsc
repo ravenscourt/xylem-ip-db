@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv4
-# Last updated: 2026-07-05T03:03:12Z
-# Hash: sha256:a2f21b3a394938c3442495fa03a1f8c0c0d8a542d4b011529e4cabd8d682256f
+# Last updated: 2026-07-05T08:56:48Z
+# Hash: sha256:87f7b67d50c2c255c7f3cd68cf1d637ad540da68ef668c7cff6568bf0eecaf5e
 
 /ip firewall address-list remove [/ip firewall address-list find list=IRv4]
 /ip firewall address-list
@@ -450,6 +450,14 @@
 :do { add address=81.29.240.0/20 list=IRv4} on-error={}
 :do { add address=81.30.108.0/24 list=IRv4} on-error={}
 :do { add address=81.31.160.0/19 list=IRv4} on-error={}
+:do { add address=81.31.224.0/22 list=IRv4} on-error={}
+:do { add address=81.31.229.0/24 list=IRv4} on-error={}
+:do { add address=81.31.233.0/24 list=IRv4} on-error={}
+:do { add address=81.31.236.0/24 list=IRv4} on-error={}
+:do { add address=81.31.239.0/24 list=IRv4} on-error={}
+:do { add address=81.31.240.0/23 list=IRv4} on-error={}
+:do { add address=81.31.248.0/24 list=IRv4} on-error={}
+:do { add address=81.31.250.0/24 list=IRv4} on-error={}
 :do { add address=81.90.144.0/20 list=IRv4} on-error={}
 :do { add address=81.91.128.0/19 list=IRv4} on-error={}
 :do { add address=81.163.0.0/21 list=IRv4} on-error={}
@@ -2050,7 +2058,6 @@
 :do { add address=195.8.114.0/24 list=IRv4} on-error={}
 :do { add address=195.10.220.0/24 list=IRv4} on-error={}
 :do { add address=195.18.10.0/24 list=IRv4} on-error={}
-:do { add address=195.20.136.0/24 list=IRv4} on-error={}
 :do { add address=195.24.233.0/24 list=IRv4} on-error={}
 :do { add address=195.24.236.0/23 list=IRv4} on-error={}
 :do { add address=195.26.27.0/24 list=IRv4} on-error={}
@@ -2085,6 +2092,7 @@
 :do { add address=195.230.105.0/24 list=IRv4} on-error={}
 :do { add address=195.230.107.0/24 list=IRv4} on-error={}
 :do { add address=195.230.124.0/24 list=IRv4} on-error={}
+:do { add address=195.234.80.0/24 list=IRv4} on-error={}
 :do { add address=195.234.191.0/24 list=IRv4} on-error={}
 :do { add address=195.238.231.0/24 list=IRv4} on-error={}
 :do { add address=195.238.240.0/24 list=IRv4} on-error={}
