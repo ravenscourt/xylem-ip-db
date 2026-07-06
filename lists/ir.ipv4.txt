@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv4
-# Last updated: 2026-07-06T15:35:49Z
-# Hash: sha256:1b62da5fdb6bd51361caeb3930e66339d0bc61f88169ffeefa0b03692b1974cb
+# Last updated: 2026-07-06T19:58:27Z
+# Hash: sha256:354a7fb4653b586a53c9afbece3d91734d352ae22215344936f5edce5b133bea
 
 2.57.3.0/24
 2.144.0.0/14
@@ -1106,6 +1106,7 @@
 95.162.0.0/16
 95.215.59.0/24
 95.215.160.0/22
+95.215.173.0/24
 # Mobile Network CGNAT
 100.64.0.0/10
 103.111.69.0/24

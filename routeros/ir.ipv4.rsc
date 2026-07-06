@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv4
-# Last updated: 2026-07-06T15:35:49Z
-# Hash: sha256:c61e630d0299fa3d8150593cd367af7865705c58ee1e5b13066f8c88959227f4
+# Last updated: 2026-07-06T19:58:27Z
+# Hash: sha256:3872a80883c4ae1d49aa4301226cbb89807f81b9c3904dd415fadb8953971c82
 
 /ip firewall address-list remove [/ip firewall address-list find list=IRv4]
 /ip firewall address-list
@@ -1104,6 +1104,7 @@
 :do { add address=95.162.0.0/16 list=IRv4} on-error={}
 :do { add address=95.215.59.0/24 list=IRv4} on-error={}
 :do { add address=95.215.160.0/22 list=IRv4} on-error={}
+:do { add address=95.215.173.0/24 list=IRv4} on-error={}
 :do { add address=100.64.0.0/10 list=IRv4 comment="Mobile Network CGNAT"} on-error={}
 :do { add address=103.111.69.0/24 list=IRv4} on-error={}
 :do { add address=103.111.71.0/24 list=IRv4} on-error={}
