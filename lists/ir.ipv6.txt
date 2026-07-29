@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv6
-# Last updated: 2026-07-27T09:56:38Z
-# Hash: sha256:1e0eb0411a9d1b7336c9ca3e13d02487b92e702a689800895f9314689a12dcae
+# Last updated: 2026-07-29T19:19:24Z
+# Hash: sha256:2ef37e0aea9f649c26922dfa9fdd858a842fa9935b094fb3d42f7c0e7af35e32
 
 2001:4188::/48
 2001:4188:1b::/48
@@ -54,5 +54,4 @@
 2a0c:a7c6:1000::/36
 2a0c:a7c7::/40
 2a0d:4ac0::/40
-2a0f:9800::/29
 2a14:5ac0::/32
