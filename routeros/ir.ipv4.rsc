@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv4
-# Last updated: 2026-07-31T08:52:30Z
-# Hash: sha256:11fe0c98ff225dc013f39d50d9ae0e858d3294db5a5e7ec20c51d2bb036c9067
+# Last updated: 2026-08-01T08:24:10Z
+# Hash: sha256:15ffb9338a18c722e444141a285b96ce60716223b56c734c21ae10d65ef6b7d1
 
 /ip firewall address-list remove [/ip firewall address-list find list=IRv4]
 /ip firewall address-list
@@ -320,10 +320,7 @@
 :do { add address=46.182.32.0/21 list=IRv4} on-error={}
 :do { add address=46.209.0.0/16 list=IRv4 comment="Respina ISP"} on-error={}
 :do { add address=46.235.76.0/23 list=IRv4} on-error={}
-:do { add address=46.245.0.0/19 list=IRv4} on-error={}
-:do { add address=46.245.32.0/20 list=IRv4} on-error={}
-:do { add address=46.245.48.0/21 list=IRv4} on-error={}
-:do { add address=46.245.64.0/18 list=IRv4} on-error={}
+:do { add address=46.245.0.0/17 list=IRv4} on-error={}
 :do { add address=46.249.96.0/24 list=IRv4} on-error={}
 :do { add address=46.249.120.0/21 list=IRv4} on-error={}
 :do { add address=46.255.216.0/21 list=IRv4} on-error={}
