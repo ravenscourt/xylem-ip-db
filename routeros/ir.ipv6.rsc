@@ -1,12 +1,15 @@
 # Country: Iran (IR)
 # Type: IPv6
-# Last updated: 2026-07-29T19:19:24Z
-# Hash: sha256:b1efc485b5d61eac9d6ebc5e01426857855064fea798eb0d38d0f022160c1990
+# Last updated: 2026-08-02T02:50:08Z
+# Hash: sha256:550f19af047c980c277febbfde49350b33eb85d5f3768a64f8716837cd0f1eb4
 
 /ipv6 firewall address-list remove [/ipv6 firewall address-list find list=IRv6]
 /ipv6 firewall address-list
 :do { add address=2001:4188::/48 list=IRv6} on-error={}
 :do { add address=2001:4188:1b::/48 list=IRv6} on-error={}
+:do { add address=2a00:5ca0::/29 list=IRv6} on-error={}
+:do { add address=2a00:7d80::/47 list=IRv6} on-error={}
+:do { add address=2a00:bc60::/32 list=IRv6} on-error={}
 :do { add address=2a01:3c8::/32 list=IRv6} on-error={}
 :do { add address=2a01:5ec0:1000::/36 list=IRv6} on-error={}
 :do { add address=2a01:5ec0:2000::/35 list=IRv6} on-error={}
@@ -40,6 +43,8 @@
 :do { add address=2a02:dfc0:1::/48 list=IRv6} on-error={}
 :do { add address=2a02:dfc0:2::/47 list=IRv6} on-error={}
 :do { add address=2a02:dfc0:4::/48 list=IRv6} on-error={}
+:do { add address=2a03:2dc0:1000::/36 list=IRv6} on-error={}
+:do { add address=2a03:4680::/29 list=IRv6} on-error={}
 :do { add address=2a03:ef42::/32 list=IRv6} on-error={}
 :do { add address=2a03:ef43::/34 list=IRv6} on-error={}
 :do { add address=2a03:ef43:c000::/48 list=IRv6} on-error={}
@@ -52,8 +57,12 @@
 :do { add address=2a05:9080:14::/48 list=IRv6} on-error={}
 :do { add address=2a05:cd00::/32 list=IRv6} on-error={}
 :do { add address=2a06:de06:385::/48 list=IRv6} on-error={}
+:do { add address=2a07:3907::/40 list=IRv6} on-error={}
 :do { add address=2a0c:a7c6:2b::/48 list=IRv6} on-error={}
 :do { add address=2a0c:a7c6:1000::/36 list=IRv6} on-error={}
 :do { add address=2a0c:a7c7::/40 list=IRv6} on-error={}
 :do { add address=2a0d:4ac0::/40 list=IRv6} on-error={}
+:do { add address=2a0d:9680::/48 list=IRv6} on-error={}
+:do { add address=2a0e:b081::/32 list=IRv6} on-error={}
 :do { add address=2a14:5ac0::/32 list=IRv6} on-error={}
+:do { add address=2a14:5ec1::/32 list=IRv6} on-error={}
