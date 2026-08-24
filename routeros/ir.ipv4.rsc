@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv4
-# Last updated: 2026-08-24T07:04:53Z
-# Hash: sha256:ac80157cabb228b16f805fe8291bd66d1ecc8ec0cbd4bed6fb07c3bb2b70f18e
+# Last updated: 2026-08-24T12:51:13Z
+# Hash: sha256:4cd42925373b08deb58819d5f4927cd1c61331f9b3272fa74b52f77fd3c1d45e
 
 /ip firewall address-list remove [/ip firewall address-list find list=IRv4]
 /ip firewall address-list
@@ -254,6 +254,7 @@
 :do { add address=45.147.76.0/22 list=IRv4} on-error={}
 :do { add address=45.148.248.0/22 list=IRv4} on-error={}
 :do { add address=45.149.76.0/22 list=IRv4} on-error={}
+:do { add address=45.150.88.0/22 list=IRv4} on-error={}
 :do { add address=45.150.150.0/24 list=IRv4} on-error={}
 :do { add address=45.155.192.0/22 list=IRv4} on-error={}
 :do { add address=45.156.116.0/22 list=IRv4} on-error={}
@@ -605,6 +606,7 @@
 :do { add address=87.248.133.0/24 list=IRv4} on-error={}
 :do { add address=87.248.137.0/24 list=IRv4} on-error={}
 :do { add address=87.248.138.0/23 list=IRv4} on-error={}
+:do { add address=87.248.141.0/24 list=IRv4} on-error={}
 :do { add address=87.248.142.0/23 list=IRv4} on-error={}
 :do { add address=87.248.145.0/24 list=IRv4} on-error={}
 :do { add address=87.248.147.0/24 list=IRv4} on-error={}
@@ -1105,6 +1107,7 @@
 :do { add address=109.94.164.0/22 list=IRv4} on-error={}
 :do { add address=109.95.60.0/22 list=IRv4} on-error={}
 :do { add address=109.95.64.0/24 list=IRv4} on-error={}
+:do { add address=109.95.66.0/24 list=IRv4} on-error={}
 :do { add address=109.95.69.0/24 list=IRv4} on-error={}
 :do { add address=109.95.71.0/24 list=IRv4} on-error={}
 :do { add address=109.107.131.0/24 list=IRv4} on-error={}
@@ -2006,6 +2009,7 @@
 :do { add address=194.33.105.0/24 list=IRv4} on-error={}
 :do { add address=194.33.106.0/23 list=IRv4} on-error={}
 :do { add address=194.33.122.0/23 list=IRv4} on-error={}
+:do { add address=194.33.124.0/24 list=IRv4} on-error={}
 :do { add address=194.34.163.0/24 list=IRv4} on-error={}
 :do { add address=194.36.0.0/24 list=IRv4} on-error={}
 :do { add address=194.39.36.0/22 list=IRv4} on-error={}
