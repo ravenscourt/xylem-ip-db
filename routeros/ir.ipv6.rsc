@@ -1,14 +1,13 @@
 # Country: Iran (IR)
 # Type: IPv6
-# Last updated: 2026-09-06T10:22:59Z
-# Hash: sha256:b862e4493ec4996ff38ce2aa7556ad003253ec175307a5155b04e124425ab241
+# Last updated: 2026-09-07T03:04:43Z
+# Hash: sha256:cfc35797f2bbfe37c365665df2b697bf7262235909c1a2bc9a5648bd7d2bb902
 
 /ipv6 firewall address-list remove [/ipv6 firewall address-list find list=IRv6]
 /ipv6 firewall address-list
 :do { add address=2001:678:428::/48 list=IRv6} on-error={}
 :do { add address=2001:30c0::/48 list=IRv6} on-error={}
 :do { add address=2001:39c0::/29 list=IRv6} on-error={}
-:do { add address=2001:4188::/48 list=IRv6} on-error={}
 :do { add address=2001:4188:2::/48 list=IRv6} on-error={}
 :do { add address=2001:4188:17::/48 list=IRv6} on-error={}
 :do { add address=2001:4188:18::/46 list=IRv6} on-error={}
@@ -41,26 +40,6 @@
 :do { add address=2a01:e140:100::/44 list=IRv6} on-error={}
 :do { add address=2a02:828::/48 list=IRv6} on-error={}
 :do { add address=2a02:2b58::/29 list=IRv6} on-error={}
-:do { add address=2a02:4540::/41 list=IRv6} on-error={}
-:do { add address=2a02:4540:80::/42 list=IRv6} on-error={}
-:do { add address=2a02:4540:c0::/43 list=IRv6} on-error={}
-:do { add address=2a02:4540:f8::/45 list=IRv6} on-error={}
-:do { add address=2a02:4540:108::/45 list=IRv6} on-error={}
-:do { add address=2a02:4540:110::/45 list=IRv6} on-error={}
-:do { add address=2a02:4540:138::/45 list=IRv6} on-error={}
-:do { add address=2a02:4540:140::/43 list=IRv6} on-error={}
-:do { add address=2a02:4540:5000::/41 list=IRv6} on-error={}
-:do { add address=2a02:4540:5080::/43 list=IRv6} on-error={}
-:do { add address=2a02:4540:50c0::/42 list=IRv6} on-error={}
-:do { add address=2a02:4540:7000::/41 list=IRv6} on-error={}
-:do { add address=2a02:4540:9000::/40 list=IRv6} on-error={}
-:do { add address=2a02:4540:9100::/42 list=IRv6} on-error={}
-:do { add address=2a02:4540:c000::/41 list=IRv6} on-error={}
-:do { add address=2a02:4540:e000::/41 list=IRv6} on-error={}
-:do { add address=2a02:4540:e080::/48 list=IRv6} on-error={}
-:do { add address=2a02:4540:e0c0::/42 list=IRv6} on-error={}
-:do { add address=2a02:4540:ffc0::/44 list=IRv6} on-error={}
-:do { add address=2a02:4540:ffd0::/45 list=IRv6} on-error={}
 :do { add address=2a02:cd80::/29 list=IRv6} on-error={}
 :do { add address=2a02:d2c4::/30 list=IRv6} on-error={}
 :do { add address=2a02:dfc0:1::/48 list=IRv6} on-error={}
@@ -68,7 +47,6 @@
 :do { add address=2a02:dfc0:4::/48 list=IRv6} on-error={}
 :do { add address=2a03:2dc0:1000::/36 list=IRv6} on-error={}
 :do { add address=2a03:3b60::/32 list=IRv6} on-error={}
-:do { add address=2a03:4680::/29 list=IRv6} on-error={}
 :do { add address=2a03:49c0::/32 list=IRv6} on-error={}
 :do { add address=2a03:54a0::/32 list=IRv6} on-error={}
 :do { add address=2a03:57c0::/32 list=IRv6} on-error={}
@@ -95,9 +73,7 @@
 :do { add address=2a04:aa00::/31 list=IRv6} on-error={}
 :do { add address=2a04:acc0:10::/44 list=IRv6} on-error={}
 :do { add address=2a04:acc4::/30 list=IRv6} on-error={}
-:do { add address=2a04:c147::/33 list=IRv6} on-error={}
-:do { add address=2a04:f080::/29 list=IRv6} on-error={}
-:do { add address=2a05:1a00::/26 list=IRv6} on-error={}
+:do { add address=2a05:1a30::/34 list=IRv6} on-error={}
 :do { add address=2a05:2d80::/48 list=IRv6} on-error={}
 :do { add address=2a05:3e40::/29 list=IRv6} on-error={}
 :do { add address=2a05:5440::/32 list=IRv6} on-error={}
@@ -109,14 +85,12 @@
 :do { add address=2a05:9080:8::/48 list=IRv6} on-error={}
 :do { add address=2a05:9080:10::/47 list=IRv6} on-error={}
 :do { add address=2a05:9080:14::/48 list=IRv6} on-error={}
-:do { add address=2a05:9a00::/29 list=IRv6} on-error={}
 :do { add address=2a05:ab80::/48 list=IRv6} on-error={}
 :do { add address=2a05:ab80:100::/48 list=IRv6} on-error={}
 :do { add address=2a05:ab80:200::/48 list=IRv6} on-error={}
 :do { add address=2a05:c180::/32 list=IRv6} on-error={}
 :do { add address=2a05:cd00::/31 list=IRv6} on-error={}
 :do { add address=2a06:1cc0::/29 list=IRv6} on-error={}
-:do { add address=2a06:5484::/30 list=IRv6} on-error={}
 :do { add address=2a06:5a40::/29 list=IRv6} on-error={}
 :do { add address=2a06:6c40::/32 list=IRv6} on-error={}
 :do { add address=2a06:7140::/29 list=IRv6} on-error={}
@@ -127,11 +101,9 @@
 :do { add address=2a06:f100::/29 list=IRv6} on-error={}
 :do { add address=2a07:3900::/29 list=IRv6} on-error={}
 :do { add address=2a07:4280::/29 list=IRv6} on-error={}
-:do { add address=2a07:7ec0::/29 list=IRv6} on-error={}
 :do { add address=2a07:8f00::/29 list=IRv6} on-error={}
 :do { add address=2a07:8f40::/29 list=IRv6} on-error={}
 :do { add address=2a07:c200::/29 list=IRv6} on-error={}
-:do { add address=2a07:e440::/29 list=IRv6} on-error={}
 :do { add address=2a09:2b80:2::/48 list=IRv6} on-error={}
 :do { add address=2a09:2b80:4::/47 list=IRv6} on-error={}
 :do { add address=2a09:2b80:6::/48 list=IRv6} on-error={}
@@ -149,18 +121,15 @@
 :do { add address=2a0d:4ac0::/40 list=IRv6} on-error={}
 :do { add address=2a0d:6600::/29 list=IRv6} on-error={}
 :do { add address=2a0d:d580::/32 list=IRv6} on-error={}
-:do { add address=2a0e::/26 list=IRv6} on-error={}
+:do { add address=2a0e:38::/30 list=IRv6} on-error={}
+:do { add address=2a0e:3c:ffe0::/43 list=IRv6} on-error={}
 :do { add address=2a0e:4a40::/29 list=IRv6} on-error={}
 :do { add address=2a0e:b081::/32 list=IRv6} on-error={}
 :do { add address=2a0f:2b84:1::/48 list=IRv6} on-error={}
 :do { add address=2a0f:6400::/29 list=IRv6} on-error={}
-:do { add address=2a0f:c7c0::/29 list=IRv6} on-error={}
 :do { add address=2a0f:cbc0::/29 list=IRv6} on-error={}
-:do { add address=2a10:4340::/29 list=IRv6} on-error={}
 :do { add address=2a10:5740::/47 list=IRv6} on-error={}
 :do { add address=2a10:5740:2::/48 list=IRv6} on-error={}
-:do { add address=2a10:5c40::/29 list=IRv6} on-error={}
-:do { add address=2a10:6140::/29 list=IRv6} on-error={}
 :do { add address=2a10:8180::/29 list=IRv6} on-error={}
 :do { add address=2a10:a440::/29 list=IRv6} on-error={}
 :do { add address=2a10:a780::/29 list=IRv6} on-error={}
@@ -173,7 +142,6 @@
 :do { add address=2a10:fe00::/32 list=IRv6} on-error={}
 :do { add address=2a11:7bc0::/29 list=IRv6} on-error={}
 :do { add address=2a11:8a85:400::/38 list=IRv6} on-error={}
-:do { add address=2a12:5440::/48 list=IRv6} on-error={}
 :do { add address=2a12:8840::/29 list=IRv6} on-error={}
 :do { add address=2a13:7b40:1::/48 list=IRv6} on-error={}
 :do { add address=2a13:83c0::/48 list=IRv6} on-error={}
