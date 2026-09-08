@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv4
-# Last updated: 2026-09-07T21:14:42Z
-# Hash: sha256:4dd980af42c75dd3fc2087471d23325ad5a7f0487ab0cc72d5a9d4348dd3eab5
+# Last updated: 2026-09-08T20:50:55Z
+# Hash: sha256:47468e9e605f68415d2e837779aba9d8ec940a8df2d64212bd82907c58c88bab
 
 /ip firewall address-list remove [/ip firewall address-list find list=IRv4]
 /ip firewall address-list
@@ -287,6 +287,7 @@
 :do { add address=46.38.144.0/24 list=IRv4} on-error={}
 :do { add address=46.38.146.0/24 list=IRv4} on-error={}
 :do { add address=46.38.148.0/23 list=IRv4} on-error={}
+:do { add address=46.38.151.0/24 list=IRv4} on-error={}
 :do { add address=46.38.159.0/24 list=IRv4} on-error={}
 :do { add address=46.41.192.0/18 list=IRv4} on-error={}
 :do { add address=46.51.0.0/19 list=IRv4} on-error={}
@@ -488,6 +489,7 @@
 :do { add address=84.241.0.0/18 list=IRv4} on-error={}
 :do { add address=85.8.230.0/23 list=IRv4} on-error={}
 :do { add address=85.8.232.0/24 list=IRv4} on-error={}
+:do { add address=85.8.236.0/24 list=IRv4} on-error={}
 :do { add address=85.8.242.0/24 list=IRv4} on-error={}
 :do { add address=85.9.64.0/18 list=IRv4} on-error={}
 :do { add address=85.15.0.0/18 list=IRv4} on-error={}
