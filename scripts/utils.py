@@ -7,6 +7,7 @@ with retry/backoff.
 import hashlib
 import ipaddress
 import json
+import re
 import sys
 import time
 import urllib.request
@@ -16,16 +17,20 @@ import urllib.request
 # ---------------------------------------------------------------------------
 
 
-def fetch_url(url, retries=3, backoff_base=1.0, timeout=120):
+def fetch_url(url, retries=3, backoff_base=1.0, timeout=120, headers=None):
     """Fetch a URL with retry and exponential backoff.
     Returns the response body as bytes.
     Retries up to ``retries`` times on failure, sleeping
     backoff_base * 2^attempt seconds between attempts.
+    ``headers`` are merged over the default ``{"Connection": "close"}``.
     """
+    merged_headers = {"Connection": "close"}
+    if headers:
+        merged_headers.update(headers)
     last_exc = None
     for attempt in range(retries + 1):
         try:
-            req = urllib.request.Request(url, headers={"Connection": "close"})
+            req = urllib.request.Request(url, headers=merged_headers)
             with urllib.request.urlopen(req, timeout=timeout) as resp:
                 return resp.read()
         except Exception as exc:
@@ -51,16 +56,97 @@ def fetch_text(url, **kwargs):
 
 
 # ---------------------------------------------------------------------------
+# DNS-over-HTTPS resolution
+# ---------------------------------------------------------------------------
+
+DOH_ENDPOINTS = [
+    ("https://cloudflare-dns.com/dns-query", {"accept": "application/dns-json"}),
+    ("https://dns.google/resolve", {}),
+]
+RECORD_TYPES = (("A", 1), ("AAAA", 28))
+
+
+def _resolve_record(domain, record_name, record_code, retries, backoff_base, timeout):
+    """Resolve a single record type across the DoH endpoints in order.
+    Returns a list of ip strings, or None if every endpoint failed to answer.
+    """
+    for base_url, headers in DOH_ENDPOINTS:
+        url = f"{base_url}?name={domain}&type={record_name}"
+        try:
+            data = fetch_json(
+                url,
+                retries=retries,
+                backoff_base=backoff_base,
+                timeout=timeout,
+                headers=headers,
+            )
+        except Exception:
+            continue
+
+        status = data.get("Status")
+        if status == 3:  # NXDOMAIN: authoritative empty answer.
+            return []
+        if status != 0:
+            continue
+
+        return [
+            answer["data"]
+            for answer in data.get("Answer", [])
+            if answer.get("type") == record_code and answer.get("data")
+        ]
+    return None
+
+
+def resolve_domain(domain, retries=1, backoff_base=1.0, timeout=15):
+    """Resolve a domain to /32 and /128 networks over DoH.
+
+    Queries A and AAAA records, walking ``DOH_ENDPOINTS`` in order for each and
+    falling back to the next endpoint when one fails to answer.  Returns a tuple
+    ``(networks, failed_record_types)`` where ``failed_record_types`` lists the
+    record names for which no endpoint produced an answer.
+    """
+    networks = []
+    failed = []
+    for record_name, record_code in RECORD_TYPES:
+        addresses = _resolve_record(
+            domain, record_name, record_code, retries, backoff_base, timeout
+        )
+        if addresses is None:
+            failed.append(record_name)
+            continue
+        for addr in addresses:
+            try:
+                networks.append(ipaddress.ip_network(addr, strict=False))
+            except ValueError:
+                pass
+    return networks, failed
+
+
+# ---------------------------------------------------------------------------
 # CIDR parsing and transformation
 # ---------------------------------------------------------------------------
 
 
-def parse_cidr_text(text):
-    """Parse CIDR ranges from text content, capturing the comment above each
-    range as its reason/label.  A blank line resets the current reason.
-    Returns a list of (network, reason_or_None) tuples.
+_HOSTNAME_LABEL = re.compile(r"^(?!-)[A-Za-z0-9-]{1,63}(?<!-)$")
+
+
+def _is_hostname(value):
+    """Return True if ``value`` looks like a resolvable domain name."""
+    if len(value) > 253 or "." not in value:
+        return False
+    return all(_HOSTNAME_LABEL.match(label) for label in value.split("."))
+
+
+def parse_override_text(text):
+    """Parse an override file into CIDR entries and domain entries.
+
+    Captures the comment above each entry as its reason/label; a blank line
+    resets the current reason.  Returns two lists of ``(value, reason_or_None)``
+    tuples: the first holds ``ip_network`` objects, the second holds hostname
+    strings.  Lines that are neither a valid CIDR nor a hostname are skipped.
     """
-    entries = []
+    cidr_entries = []
+    domain_entries = []
     current_reason = None
     for line in text.splitlines():
         line = line.strip()
@@ -72,10 +158,22 @@ def parse_cidr_text(text):
             continue
         try:
             net = ipaddress.ip_network(line, strict=False)
-            entries.append((net, current_reason))
+            cidr_entries.append((net, current_reason))
+            continue
         except ValueError:
             pass
-    return entries
+        if _is_hostname(line):
+            domain_entries.append((line, current_reason))
+    return cidr_entries, domain_entries
+
+
+def parse_cidr_text(text):
+    """Parse CIDR ranges from text content, capturing the comment above each
+    range as its reason/label.  A blank line resets the current reason.
+    Returns a list of (network, reason_or_None) tuples.
+    """
+    cidr_entries, _ = parse_override_text(text)
+    return cidr_entries
 
 
 def compact_ranges(networks):

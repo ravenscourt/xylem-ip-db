@@ -1,5 +1,7 @@
 # Additions for Russia (RU)
 # Each line is a CIDR range to include alongside RIPE data.
+# A bare domain name is also accepted; it is resolved to its current A/AAAA
+# records at generation time (unresolvable domains are skipped).
 # The comment above each range is used as its label in generated files.
 
 # Yandex DNS

@@ -1,5 +1,7 @@
 # Additions for Iran (IR)
 # Each line is a CIDR range to include alongside RIPE data.
+# A bare domain name is also accepted; it is resolved to its current A/AAAA
+# records at generation time (unresolvable domains are skipped).
 # The comment above each range is used as its label in generated files.
 
 # Intranet
@@ -26,3 +28,6 @@
 5.160.0.0/16
 46.209.0.0/16
 77.104.64.0/18
+
+# Exir Dynamic IP
+pro.exir.io

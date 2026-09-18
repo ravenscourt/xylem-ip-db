@@ -17,7 +17,8 @@ from utils import (
     build_singbox_ruleset,
     compact_ranges,
     content_hash,
-    parse_cidr_text,
+    parse_override_text,
+    resolve_domain,
 )
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -88,6 +89,36 @@ def write_text_if_changed(path, content):
     return True
 
 
+def _resolve_domain_entries(domain_entries):
+    """Resolve (domain, reason) entries into (network, label) tuples.
+
+    Each resolved network is labelled with its reason plus the domain name.
+    Domains that resolve to nothing are skipped with a stderr warning.
+    """
+    resolved = []
+    for domain, reason in domain_entries:
+        networks, failed = resolve_domain(domain)
+        if not networks:
+            print(f"  Warning: could not resolve {domain}, skipping", file=sys.stderr)
+            continue
+        if failed:
+            print(f"  Note: {domain} missing {', '.join(failed)} record(s)", file=sys.stderr)
+        label = f"{reason} - {domain}" if reason else domain
+        print(f"  Resolved {domain} -> {len(networks)} address(es)")
+        for net in networks:
+            resolved.append((net, label))
+    return resolved
+
+
+def _load_override_file(path):
+    """Parse one override file into a combined list of (network, label) tuples,
+    resolving any domain entries."""
+    if not path.exists():
+        return []
+    cidr_entries, domain_entries = parse_override_text(path.read_text())
+    return cidr_entries + _resolve_domain_entries(domain_entries)
+
+
 def load_overrides(country_code):
     """Load addition and exemption overrides for a country.
     Returns two lists of (network, reason_or_None) tuples.
@@ -95,8 +126,8 @@ def load_overrides(country_code):
     additions_path = OVERRIDES_DIR / f"{country_code}.additions.txt"
     exemptions_path = OVERRIDES_DIR / f"{country_code}.exemptions.txt"
 
-    additions = parse_cidr_text(additions_path.read_text()) if additions_path.exists() else []
-    exemptions = parse_cidr_text(exemptions_path.read_text()) if exemptions_path.exists() else []
+    additions = _load_override_file(additions_path)
+    exemptions = _load_override_file(exemptions_path)
     return additions, exemptions
 
 

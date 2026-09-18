@@ -354,6 +354,17 @@ To request a change to a country's IP list, open an issue using the appropriate 
 - [Request an Addition](https://github.com/ravenscourt/xylem-ip-db/issues/new?template=addition_request.yml) -- add a range that RIPE is missing.
 - [Request an Exemption](https://github.com/ravenscourt/xylem-ip-db/issues/new?template=exemption_request.yml) -- exclude a range that shouldn't be in the list.
 
+### Domain names in overrides
+Override files under [`overrides/`](overrides/) accept a bare domain name anywhere a CIDR is allowed. At generation time each domain is resolved over DNS-over-HTTPS to its `A` and `AAAA` records, which are added as `/32` and `/128` entries. The resulting entries are labelled with the section comment plus the domain, e.g. `# Shecan DNS - free.shecan.ir`.
+
+```
+# Shecan DNS
+178.22.122.100/32
+free.shecan.ir
+```
+
+Resolution failures are non-fatal: a domain that no resolver can answer is skipped with a warning and the rest of the list is generated normally. Because domains are resolved from the GitHub Actions runner, they are best suited to hostnames with stable, non-geo-distributed addresses.
+
 ### Development
 Requires Python 3.13+ and [just](https://github.com/casey/just).
 

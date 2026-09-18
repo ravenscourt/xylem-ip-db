@@ -16,6 +16,8 @@ from utils import (
     fetch_text,
     fetch_url,
     parse_cidr_text,
+    parse_override_text,
+    resolve_domain,
 )
 
 N = ipaddress.ip_network
@@ -93,6 +95,21 @@ class TestFetchUrl:
             fetch_url("http://example.com", retries=0)
 
         assert mock_urlopen.call_count == 1
+
+    @patch("utils.urllib.request.Request")
+    @patch("utils.urllib.request.urlopen")
+    def test_headers_merged_over_default(self, mock_urlopen, mock_request):
+        resp = MagicMock()
+        resp.read.return_value = b"ok"
+        resp.__enter__ = lambda s: s
+        resp.__exit__ = MagicMock(return_value=False)
+        mock_urlopen.return_value = resp
+
+        fetch_url("http://example.com", headers={"accept": "application/dns-json"})
+
+        sent_headers = mock_request.call_args.kwargs["headers"]
+        assert sent_headers["Connection"] == "close"
+        assert sent_headers["accept"] == "application/dns-json"
 
 
 class TestFetchJson:
@@ -207,6 +224,122 @@ class TestParseCidrText:
         text = "# First\n# Second\n# Third\n10.0.0.0/8\n"
         result = parse_cidr_text(text)
         assert result == [(N("10.0.0.0/8"), "Third")]
+
+
+# ---------------------------------------------------------------------------
+# parse_override_text
+# ---------------------------------------------------------------------------
+
+
+class TestParseOverrideText:
+    def test_splits_cidrs_and_domains(self):
+        text = textwrap.dedent("""\
+            # Shecan DNS
+            178.22.122.100/32
+            free.shecan.ir
+        """)
+        cidrs, domains = parse_override_text(text)
+        assert cidrs == [(N("178.22.122.100/32"), "Shecan DNS")]
+        assert domains == [("free.shecan.ir", "Shecan DNS")]
+
+    def test_reason_inheritance_and_reset(self):
+        text = "# Group A\nexample.com\n\nother.org\n"
+        _, domains = parse_override_text(text)
+        assert domains == [("example.com", "Group A"), ("other.org", None)]
+
+    def test_junk_lines_skipped(self):
+        text = "not a domain with spaces\n10.0.0.0/8\nno-dot\n"
+        cidrs, domains = parse_override_text(text)
+        assert cidrs == [(N("10.0.0.0/8"), None)]
+        assert domains == []
+
+    def test_subdomains_accepted(self):
+        _, domains = parse_override_text("cdn.sub.example.co.uk\n")
+        assert domains == [("cdn.sub.example.co.uk", None)]
+
+    def test_empty_text(self):
+        assert parse_override_text("") == ([], [])
+
+
+# ---------------------------------------------------------------------------
+# resolve_domain
+# ---------------------------------------------------------------------------
+
+
+class TestResolveDomain:
+    @patch("utils.fetch_json")
+    def test_a_only(self, mock_fetch):
+        def side_effect(url, **kwargs):
+            if "type=A&" in url or url.endswith("type=A"):
+                return {"Status": 0, "Answer": [{"type": 1, "data": "1.2.3.4"}]}
+            return {"Status": 0, "Answer": []}
+
+        mock_fetch.side_effect = side_effect
+        networks, failed = resolve_domain("example.com")
+        assert networks == [N("1.2.3.4/32")]
+        assert failed == []
+
+    @patch("utils.fetch_json")
+    def test_a_and_aaaa(self, mock_fetch):
+        def side_effect(url, **kwargs):
+            if url.endswith("type=A"):
+                return {"Status": 0, "Answer": [{"type": 1, "data": "1.2.3.4"}]}
+            return {"Status": 0, "Answer": [{"type": 28, "data": "2001:db8::1"}]}
+
+        mock_fetch.side_effect = side_effect
+        networks, failed = resolve_domain("example.com")
+        assert N("1.2.3.4/32") in networks
+        assert N("2001:db8::1/128") in networks
+        assert failed == []
+
+    @patch("utils.fetch_json")
+    def test_cname_rows_filtered(self, mock_fetch):
+        def side_effect(url, **kwargs):
+            if url.endswith("type=A"):
+                return {
+                    "Status": 0,
+                    "Answer": [
+                        {"type": 5, "data": "target.example.com."},
+                        {"type": 1, "data": "1.2.3.4"},
+                    ],
+                }
+            return {"Status": 0, "Answer": []}
+
+        mock_fetch.side_effect = side_effect
+        networks, _ = resolve_domain("example.com")
+        assert networks == [N("1.2.3.4/32")]
+
+    @patch("utils.fetch_json")
+    def test_first_endpoint_fails_second_succeeds(self, mock_fetch):
+        calls = {"n": 0}
+
+        def side_effect(url, **kwargs):
+            if "cloudflare-dns.com" in url:
+                calls["n"] += 1
+                raise Exception("endpoint down")
+            if url.endswith("type=A"):
+                return {"Status": 0, "Answer": [{"type": 1, "data": "5.6.7.8"}]}
+            return {"Status": 0, "Answer": []}
+
+        mock_fetch.side_effect = side_effect
+        networks, failed = resolve_domain("example.com")
+        assert networks == [N("5.6.7.8/32")]
+        assert failed == []
+        assert calls["n"] > 0
+
+    @patch("utils.fetch_json")
+    def test_all_endpoints_fail(self, mock_fetch):
+        mock_fetch.side_effect = Exception("all down")
+        networks, failed = resolve_domain("example.com")
+        assert networks == []
+        assert failed == ["A", "AAAA"]
+
+    @patch("utils.fetch_json")
+    def test_nxdomain_is_empty_not_failed(self, mock_fetch):
+        mock_fetch.return_value = {"Status": 3}
+        networks, failed = resolve_domain("nope.example")
+        assert networks == []
+        assert failed == []
 
 
 # ---------------------------------------------------------------------------

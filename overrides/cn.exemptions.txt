@@ -1,3 +1,5 @@
 # Exemptions for China (CN)
 # Each line is a CIDR range to exclude from the generated list.
+# A bare domain name is also accepted; it is resolved to its current A/AAAA
+# records at generation time (unresolvable domains are skipped).
 # The comment above each range is used as its label in generated files.

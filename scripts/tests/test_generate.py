@@ -129,6 +129,31 @@ class TestLoadOverrides:
         assert additions == []
         assert exemptions == []
 
+    def test_resolves_domains_with_label(self, tmp_path, monkeypatch):
+        import generate
+
+        monkeypatch.setattr(generate, "OVERRIDES_DIR", tmp_path)
+        monkeypatch.setattr(generate, "resolve_domain", lambda d: ([N("1.2.3.4/32")], []))
+
+        adds = tmp_path / "xx.additions.txt"
+        adds.write_text("# Shecan DNS\n178.22.122.100/32\nfree.shecan.ir\n")
+
+        additions, _ = load_overrides("xx")
+        assert (N("178.22.122.100/32"), "Shecan DNS") in additions
+        assert (N("1.2.3.4/32"), "Shecan DNS - free.shecan.ir") in additions
+
+    def test_unresolvable_domain_skipped(self, tmp_path, monkeypatch):
+        import generate
+
+        monkeypatch.setattr(generate, "OVERRIDES_DIR", tmp_path)
+        monkeypatch.setattr(generate, "resolve_domain", lambda d: ([], ["A", "AAAA"]))
+
+        adds = tmp_path / "xx.additions.txt"
+        adds.write_text("# Group\n10.0.0.0/8\nunresolvable.example\n")
+
+        additions, _ = load_overrides("xx")
+        assert additions == [(N("10.0.0.0/8"), "Group")]
+
 
 # ---------------------------------------------------------------------------
 # process_country
