@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv6
-# Last updated: 2026-09-18T03:21:40Z
-# Hash: sha256:2050f389ebc75905227bcaed3512487343095afb3203d8421d73c7c38a70bb47
+# Last updated: 2026-09-18T11:31:52Z
+# Hash: sha256:95990055c5ffc485f446efb0e07ea7cc722a39472ed3f9a34eedca81bdb26241
 
 2001:678:428::/48
 2001:30c0::/48
@@ -11,6 +11,12 @@
 2001:4188:17::/48
 2001:4188:18::/46
 2001:4c88::/32
+# Exir Dynamic IP - pro.exir.io
+2606:4700:20::681a:aed/128
+# Exir Dynamic IP - pro.exir.io
+2606:4700:20::681a:bed/128
+# Exir Dynamic IP - pro.exir.io
+2606:4700:20::ac43:48b7/128
 2a00:1198::/48
 2a00:15c8::/29
 2a00:52e0::/32

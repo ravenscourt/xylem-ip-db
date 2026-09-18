@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv6
-# Last updated: 2026-09-18T03:21:40Z
-# Hash: sha256:c9e101657ee1a803756d20f7cf3682a5599266931ba2cdffab4db42e94caaa28
+# Last updated: 2026-09-18T11:31:52Z
+# Hash: sha256:ac02034c2f8d97ff445a1631f7f0e20d976ab58f89f3021925c36df42f983318
 
 /ipv6 firewall address-list remove [/ipv6 firewall address-list find list=IRv6]
 /ipv6 firewall address-list
@@ -13,6 +13,9 @@
 :do { add address=2001:4188:17::/48 list=IRv6} on-error={}
 :do { add address=2001:4188:18::/46 list=IRv6} on-error={}
 :do { add address=2001:4c88::/32 list=IRv6} on-error={}
+:do { add address=2606:4700:20::681a:aed/128 list=IRv6 comment="Exir Dynamic IP - pro.exir.io"} on-error={}
+:do { add address=2606:4700:20::681a:bed/128 list=IRv6 comment="Exir Dynamic IP - pro.exir.io"} on-error={}
+:do { add address=2606:4700:20::ac43:48b7/128 list=IRv6 comment="Exir Dynamic IP - pro.exir.io"} on-error={}
 :do { add address=2a00:1198::/48 list=IRv6} on-error={}
 :do { add address=2a00:15c8::/29 list=IRv6} on-error={}
 :do { add address=2a00:52e0::/32 list=IRv6} on-error={}
