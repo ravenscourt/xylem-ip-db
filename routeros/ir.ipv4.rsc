@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv4
-# Last updated: 2026-09-18T20:34:07Z
-# Hash: sha256:d87a0f0bd425f233a788da9b044cc9e0df7bea541df0362f198ed0be9ad28147
+# Last updated: 2026-09-19T15:29:01Z
+# Hash: sha256:d35349c08f46cf05b5860662820313dcd52b7ec26954478c42d062af5750f60d
 
 /ip firewall address-list remove [/ip firewall address-list find list=IRv4]
 /ip firewall address-list
@@ -509,15 +509,13 @@
 :do { add address=85.133.176.0/20 list=IRv4} on-error={}
 :do { add address=85.133.192.0/23 list=IRv4} on-error={}
 :do { add address=85.133.195.0/24 list=IRv4} on-error={}
-:do { add address=85.133.198.0/24 list=IRv4} on-error={}
+:do { add address=85.133.198.0/23 list=IRv4} on-error={}
 :do { add address=85.133.200.0/24 list=IRv4} on-error={}
-:do { add address=85.133.202.0/24 list=IRv4} on-error={}
+:do { add address=85.133.202.0/23 list=IRv4} on-error={}
 :do { add address=85.133.204.0/22 list=IRv4} on-error={}
-:do { add address=85.133.208.0/22 list=IRv4} on-error={}
-:do { add address=85.133.212.0/23 list=IRv4} on-error={}
-:do { add address=85.133.215.0/24 list=IRv4} on-error={}
+:do { add address=85.133.208.0/21 list=IRv4} on-error={}
 :do { add address=85.133.217.0/24 list=IRv4} on-error={}
-:do { add address=85.133.218.0/24 list=IRv4} on-error={}
+:do { add address=85.133.218.0/23 list=IRv4} on-error={}
 :do { add address=85.133.220.0/22 list=IRv4} on-error={}
 :do { add address=85.133.224.0/23 list=IRv4} on-error={}
 :do { add address=85.133.226.0/24 list=IRv4} on-error={}
@@ -1010,8 +1008,7 @@
 :do { add address=94.184.32.0/22 list=IRv4} on-error={}
 :do { add address=94.184.36.0/24 list=IRv4} on-error={}
 :do { add address=94.184.38.0/23 list=IRv4} on-error={}
-:do { add address=94.184.40.0/23 list=IRv4} on-error={}
-:do { add address=94.184.42.0/24 list=IRv4} on-error={}
+:do { add address=94.184.40.0/22 list=IRv4} on-error={}
 :do { add address=94.184.44.0/24 list=IRv4} on-error={}
 :do { add address=94.184.64.0/18 list=IRv4} on-error={}
 :do { add address=94.184.128.0/17 list=IRv4} on-error={}
