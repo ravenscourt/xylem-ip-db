@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv6
-# Last updated: 2026-09-22T16:31:05Z
-# Hash: sha256:2c28a5eeab636b9041b8ab4d88525b0e72d117d758b4a6a8185ff10e0c0b2128
+# Last updated: 2026-09-23T16:14:55Z
+# Hash: sha256:e81bc72980d3c55a0368953fadeea6f03ff7e0c2004f500a923b479bb19f54f9
 
 /ipv6 firewall address-list remove [/ipv6 firewall address-list find list=IRv6]
 /ipv6 firewall address-list
@@ -188,6 +188,7 @@
 :do { add address=2a11:8a85:400::/38 list=IRv6} on-error={}
 :do { add address=2a12:5440::/48 list=IRv6} on-error={}
 :do { add address=2a12:8840::/29 list=IRv6} on-error={}
+:do { add address=2a13:1740::/29 list=IRv6} on-error={}
 :do { add address=2a13:7b40:1::/48 list=IRv6} on-error={}
 :do { add address=2a13:83c0::/48 list=IRv6} on-error={}
 :do { add address=2a13:9540::/29 list=IRv6} on-error={}
