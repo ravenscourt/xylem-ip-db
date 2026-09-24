@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv6
-# Last updated: 2026-09-24T11:16:48Z
-# Hash: sha256:e57c878571902646054543aeedd062f42ef774f40671353201fb2250d7d59bb7
+# Last updated: 2026-09-24T21:35:25Z
+# Hash: sha256:465632194feba245a9bfedb2160ac0e0f7678d157425a8fd858cbe82d193b842
 
 /ipv6 firewall address-list remove [/ipv6 firewall address-list find list=IRv6]
 /ipv6 firewall address-list
@@ -13,9 +13,9 @@
 :do { add address=2001:4188:17::/48 list=IRv6} on-error={}
 :do { add address=2001:4188:18::/46 list=IRv6} on-error={}
 :do { add address=2001:4c88::/32 list=IRv6} on-error={}
-:do { add address=2606:4700:20::681a:aed/128 list=IRv6 comment="Exir Dynamic IP - pro.exir.io"} on-error={}
-:do { add address=2606:4700:20::681a:bed/128 list=IRv6 comment="Exir Dynamic IP - pro.exir.io"} on-error={}
-:do { add address=2606:4700:20::ac43:48b7/128 list=IRv6 comment="Exir Dynamic IP - pro.exir.io"} on-error={}
+:do { add address=2606:4700:20::681a:8a1/128 list=IRv6 comment="Exir Dynamic IP - pro.exir.io"} on-error={}
+:do { add address=2606:4700:20::681a:9a1/128 list=IRv6 comment="Exir Dynamic IP - pro.exir.io"} on-error={}
+:do { add address=2606:4700:20::ac43:475b/128 list=IRv6 comment="Exir Dynamic IP - pro.exir.io"} on-error={}
 :do { add address=2a00:1198::/48 list=IRv6} on-error={}
 :do { add address=2a00:15c8::/29 list=IRv6} on-error={}
 :do { add address=2a00:52e0::/32 list=IRv6} on-error={}
