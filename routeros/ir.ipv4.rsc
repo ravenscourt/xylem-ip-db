@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv4
-# Last updated: 2026-09-29T12:16:08Z
-# Hash: sha256:3929275533b1f8c3cef13b105b5ba57d5f6790a2cff6daba9ae6d99623fe6d10
+# Last updated: 2026-09-29T22:01:46Z
+# Hash: sha256:321ee60371334f04719ba24259a29e227b3c3b011fe923cba149f9b3834d4ff2
 
 /ip firewall address-list remove [/ip firewall address-list find list=IRv4]
 /ip firewall address-list
@@ -590,7 +590,7 @@
 :do { add address=87.107.162.0/24 list=IRv4} on-error={}
 :do { add address=87.107.164.0/22 list=IRv4} on-error={}
 :do { add address=87.107.169.0/24 list=IRv4} on-error={}
-:do { add address=87.107.170.0/24 list=IRv4} on-error={}
+:do { add address=87.107.170.0/23 list=IRv4} on-error={}
 :do { add address=87.107.172.0/22 list=IRv4} on-error={}
 :do { add address=87.107.176.0/20 list=IRv4} on-error={}
 :do { add address=87.107.192.0/24 list=IRv4} on-error={}
@@ -1106,6 +1106,7 @@
 :do { add address=104.26.9.161/32 list=IRv4 comment="Exir Dynamic IP - pro.exir.io"} on-error={}
 :do { add address=109.68.217.0/24 list=IRv4} on-error={}
 :do { add address=109.70.76.0/23 list=IRv4} on-error={}
+:do { add address=109.70.78.0/24 list=IRv4} on-error={}
 :do { add address=109.70.237.0/24 list=IRv4} on-error={}
 :do { add address=109.72.192.0/20 list=IRv4} on-error={}
 :do { add address=109.74.224.0/20 list=IRv4} on-error={}
