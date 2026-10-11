@@ -1,7 +1,7 @@
 # Country: Russia (RU)
 # Type: IPv4
-# Last updated: 2026-10-11T04:12:25Z
-# Hash: sha256:23dd6c820c3cf70483f2f79e959fdbd2408f3708855bb725de4e79918304faba
+# Last updated: 2026-10-11T21:37:07Z
+# Hash: sha256:c2639a09b07df909c67dd770b37da14e491074c1122802e28765326c7eb065b4
 
 /ip firewall address-list remove [/ip firewall address-list find list=RUv4]
 /ip firewall address-list
@@ -13382,6 +13382,7 @@
 :do { add address=172.83.159.0/24 list=RUv4} on-error={}
 :do { add address=172.86.73.0/24 list=RUv4} on-error={}
 :do { add address=172.86.75.0/24 list=RUv4} on-error={}
+:do { add address=172.86.76.0/24 list=RUv4} on-error={}
 :do { add address=172.86.80.0/24 list=RUv4} on-error={}
 :do { add address=172.86.87.0/24 list=RUv4} on-error={}
 :do { add address=172.86.113.0/24 list=RUv4} on-error={}
