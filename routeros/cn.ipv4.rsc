@@ -1,7 +1,7 @@
 # Country: China (CN)
 # Type: IPv4
-# Last updated: 2026-10-15T10:58:22Z
-# Hash: sha256:141e2c6e5d2ff2031c74ca5a102726a0ac205259498156d88c37301583c31bc9
+# Last updated: 2026-10-15T21:06:43Z
+# Hash: sha256:105e225ba3b66b9c4de23db4b51720fa1d313ef9c0935eeb6566e76ed17fe547
 
 /ip firewall address-list remove [/ip firewall address-list find list=CNv4]
 /ip firewall address-list
@@ -257,7 +257,7 @@
 :do { add address=43.239.120.0/22 list=CNv4} on-error={}
 :do { add address=43.239.172.0/23 list=CNv4} on-error={}
 :do { add address=43.240.0.0/22 list=CNv4} on-error={}
-:do { add address=43.240.60.0/22 list=CNv4} on-error={}
+:do { add address=43.240.56.0/21 list=CNv4} on-error={}
 :do { add address=43.240.72.0/22 list=CNv4} on-error={}
 :do { add address=43.240.124.0/22 list=CNv4} on-error={}
 :do { add address=43.240.128.0/22 list=CNv4} on-error={}
@@ -2126,16 +2126,6 @@
 :do { add address=119.164.0.0/14 list=CNv4} on-error={}
 :do { add address=119.176.0.0/12 list=CNv4} on-error={}
 :do { add address=119.233.128.0/17 list=CNv4} on-error={}
-:do { add address=119.235.128.0/24 list=CNv4} on-error={}
-:do { add address=119.235.130.0/24 list=CNv4} on-error={}
-:do { add address=119.235.136.0/24 list=CNv4} on-error={}
-:do { add address=119.235.138.0/24 list=CNv4} on-error={}
-:do { add address=119.235.143.0/24 list=CNv4} on-error={}
-:do { add address=119.235.144.0/23 list=CNv4} on-error={}
-:do { add address=119.235.151.0/24 list=CNv4} on-error={}
-:do { add address=119.235.160.0/23 list=CNv4} on-error={}
-:do { add address=119.235.167.0/24 list=CNv4} on-error={}
-:do { add address=119.235.185.0/24 list=CNv4} on-error={}
 :do { add address=119.248.0.0/14 list=CNv4} on-error={}
 :do { add address=119.253.0.0/20 list=CNv4} on-error={}
 :do { add address=119.253.32.0/19 list=CNv4} on-error={}
@@ -2991,7 +2981,7 @@
 :do { add address=202.164.0.0/20 list=CNv4} on-error={}
 :do { add address=202.168.160.0/19 list=CNv4} on-error={}
 :do { add address=202.170.128.0/19 list=CNv4} on-error={}
-:do { add address=202.170.216.0/21 list=CNv4} on-error={}
+:do { add address=202.170.220.0/23 list=CNv4} on-error={}
 :do { add address=202.173.8.0/22 list=CNv4} on-error={}
 :do { add address=202.173.14.0/23 list=CNv4} on-error={}
 :do { add address=202.173.224.0/19 list=CNv4} on-error={}
@@ -3804,28 +3794,7 @@
 :do { add address=222.59.128.0/17 list=CNv4} on-error={}
 :do { add address=222.64.0.0/11 list=CNv4} on-error={}
 :do { add address=222.125.0.0/16 list=CNv4} on-error={}
-:do { add address=222.126.128.0/23 list=CNv4} on-error={}
-:do { add address=222.126.132.0/23 list=CNv4} on-error={}
-:do { add address=222.126.141.0/24 list=CNv4} on-error={}
-:do { add address=222.126.142.0/23 list=CNv4} on-error={}
-:do { add address=222.126.146.0/23 list=CNv4} on-error={}
-:do { add address=222.126.148.0/23 list=CNv4} on-error={}
-:do { add address=222.126.152.0/21 list=CNv4} on-error={}
-:do { add address=222.126.164.0/24 list=CNv4} on-error={}
-:do { add address=222.126.170.0/23 list=CNv4} on-error={}
-:do { add address=222.126.172.0/22 list=CNv4} on-error={}
-:do { add address=222.126.180.0/22 list=CNv4} on-error={}
-:do { add address=222.126.184.0/22 list=CNv4} on-error={}
-:do { add address=222.126.188.0/24 list=CNv4} on-error={}
-:do { add address=222.126.192.0/22 list=CNv4} on-error={}
-:do { add address=222.126.196.0/23 list=CNv4} on-error={}
-:do { add address=222.126.200.0/22 list=CNv4} on-error={}
-:do { add address=222.126.208.0/23 list=CNv4} on-error={}
-:do { add address=222.126.212.0/22 list=CNv4} on-error={}
-:do { add address=222.126.216.0/23 list=CNv4} on-error={}
-:do { add address=222.126.234.0/23 list=CNv4} on-error={}
-:do { add address=222.126.236.0/23 list=CNv4} on-error={}
-:do { add address=222.126.240.0/20 list=CNv4} on-error={}
+:do { add address=222.126.128.0/17 list=CNv4} on-error={}
 :do { add address=222.128.0.0/12 list=CNv4} on-error={}
 :do { add address=222.160.0.0/14 list=CNv4} on-error={}
 :do { add address=222.167.160.0/23 list=CNv4} on-error={}
