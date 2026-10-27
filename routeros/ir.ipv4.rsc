@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv4
-# Last updated: 2026-10-27T11:49:19Z
-# Hash: sha256:cde75a8eb40adce223b20e77d802a338db999038353cdfe07fe11def8611b17f
+# Last updated: 2026-10-27T17:52:34Z
+# Hash: sha256:b704af63471a3f5a77fc3e12dc25f0660e6b58c8ae6d0013a516de9805f0557a
 
 /ip firewall address-list remove [/ip firewall address-list find list=IRv4]
 /ip firewall address-list
@@ -587,8 +587,8 @@
 :do { add address=87.107.192.0/24 list=IRv4} on-error={}
 :do { add address=87.107.194.0/23 list=IRv4} on-error={}
 :do { add address=87.107.196.0/22 list=IRv4} on-error={}
-:do { add address=87.107.200.0/23 list=IRv4} on-error={}
-:do { add address=87.107.202.0/24 list=IRv4} on-error={}
+:do { add address=87.107.200.0/22 list=IRv4} on-error={}
+:do { add address=87.107.204.0/24 list=IRv4} on-error={}
 :do { add address=87.107.206.0/23 list=IRv4} on-error={}
 :do { add address=87.107.224.0/22 list=IRv4} on-error={}
 :do { add address=87.236.38.0/23 list=IRv4} on-error={}
@@ -987,9 +987,8 @@
 :do { add address=94.184.18.0/24 list=IRv4} on-error={}
 :do { add address=94.184.21.0/24 list=IRv4} on-error={}
 :do { add address=94.184.22.0/23 list=IRv4} on-error={}
-:do { add address=94.184.26.0/24 list=IRv4} on-error={}
-:do { add address=94.184.29.0/24 list=IRv4} on-error={}
-:do { add address=94.184.30.0/23 list=IRv4} on-error={}
+:do { add address=94.184.26.0/23 list=IRv4} on-error={}
+:do { add address=94.184.28.0/22 list=IRv4} on-error={}
 :do { add address=94.184.32.0/22 list=IRv4} on-error={}
 :do { add address=94.184.36.0/24 list=IRv4} on-error={}
 :do { add address=94.184.38.0/23 list=IRv4} on-error={}
@@ -2109,7 +2108,6 @@
 :do { add address=212.33.210.0/23 list=IRv4} on-error={}
 :do { add address=212.33.212.0/22 list=IRv4} on-error={}
 :do { add address=212.33.216.0/21 list=IRv4} on-error={}
-:do { add address=212.46.45.0/24 list=IRv4} on-error={}
 :do { add address=212.80.1.0/24 list=IRv4} on-error={}
 :do { add address=212.80.2.0/23 list=IRv4} on-error={}
 :do { add address=212.80.4.0/23 list=IRv4} on-error={}
