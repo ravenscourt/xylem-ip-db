@@ -1,7 +1,7 @@
 # Country: Russia (RU)
 # Type: IPv4
-# Last updated: 2026-11-04T23:19:26Z
-# Hash: sha256:2002fd279c6347a44a04b090d3711615119d88772ead62edef55f69d226986f8
+# Last updated: 2026-11-05T05:16:47Z
+# Hash: sha256:e91229236483c5e4763de5896c377027e2fdd8275e7d0df09aa93c874431c1bb
 
 /ip firewall address-list remove [/ip firewall address-list find list=RUv4]
 /ip firewall address-list
@@ -2962,6 +2962,7 @@
 :do { add address=45.139.122.0/24 list=RUv4} on-error={}
 :do { add address=45.139.184.0/24 list=RUv4} on-error={}
 :do { add address=45.139.227.0/24 list=RUv4} on-error={}
+:do { add address=45.140.13.0/24 list=RUv4} on-error={}
 :do { add address=45.140.42.0/24 list=RUv4} on-error={}
 :do { add address=45.140.169.0/24 list=RUv4} on-error={}
 :do { add address=45.140.204.0/24 list=RUv4} on-error={}
@@ -3455,7 +3456,6 @@
 :do { add address=47.245.141.0/24 list=RUv4} on-error={}
 :do { add address=47.245.150.0/24 list=RUv4} on-error={}
 :do { add address=47.246.29.0/24 list=RUv4} on-error={}
-:do { add address=47.251.19.0/24 list=RUv4} on-error={}
 :do { add address=47.251.250.0/24 list=RUv4} on-error={}
 :do { add address=47.252.10.0/24 list=RUv4} on-error={}
 :do { add address=47.253.104.0/24 list=RUv4} on-error={}
@@ -3601,6 +3601,7 @@
 :do { add address=50.97.50.0/24 list=RUv4} on-error={}
 :do { add address=50.97.52.0/24 list=RUv4} on-error={}
 :do { add address=50.97.55.0/24 list=RUv4} on-error={}
+:do { add address=50.114.177.0/24 list=RUv4} on-error={}
 :do { add address=50.114.178.0/24 list=RUv4} on-error={}
 :do { add address=50.116.8.0/24 list=RUv4} on-error={}
 :do { add address=50.116.42.0/24 list=RUv4} on-error={}
@@ -4014,6 +4015,7 @@
 :do { add address=52.56.86.0/24 list=RUv4} on-error={}
 :do { add address=52.57.39.0/24 list=RUv4} on-error={}
 :do { add address=52.57.52.0/24 list=RUv4} on-error={}
+:do { add address=52.57.56.0/24 list=RUv4} on-error={}
 :do { add address=52.57.108.0/23 list=RUv4} on-error={}
 :do { add address=52.57.132.0/24 list=RUv4} on-error={}
 :do { add address=52.57.183.0/24 list=RUv4} on-error={}
@@ -5654,7 +5656,7 @@
 :do { add address=77.220.212.0/23 list=RUv4} on-error={}
 :do { add address=77.220.214.0/24 list=RUv4} on-error={}
 :do { add address=77.221.130.0/24 list=RUv4} on-error={}
-:do { add address=77.221.148.0/24 list=RUv4} on-error={}
+:do { add address=77.221.148.0/23 list=RUv4} on-error={}
 :do { add address=77.221.154.0/23 list=RUv4} on-error={}
 :do { add address=77.222.32.0/23 list=RUv4} on-error={}
 :do { add address=77.222.40.0/24 list=RUv4} on-error={}
@@ -5854,7 +5856,6 @@
 :do { add address=78.142.63.0/24 list=RUv4} on-error={}
 :do { add address=78.144.143.0/24 list=RUv4} on-error={}
 :do { add address=78.152.161.0/24 list=RUv4} on-error={}
-:do { add address=78.153.130.0/24 list=RUv4} on-error={}
 :do { add address=78.155.194.0/24 list=RUv4} on-error={}
 :do { add address=78.155.198.0/24 list=RUv4} on-error={}
 :do { add address=78.157.209.0/24 list=RUv4} on-error={}
@@ -6735,7 +6736,6 @@
 :do { add address=87.106.64.0/23 list=RUv4} on-error={}
 :do { add address=87.106.112.0/24 list=RUv4} on-error={}
 :do { add address=87.106.122.0/24 list=RUv4} on-error={}
-:do { add address=87.106.190.0/24 list=RUv4} on-error={}
 :do { add address=87.106.199.0/24 list=RUv4} on-error={}
 :do { add address=87.107.109.0/24 list=RUv4} on-error={}
 :do { add address=87.110.224.0/24 list=RUv4} on-error={}
@@ -7432,7 +7432,7 @@
 :do { add address=91.202.109.0/24 list=RUv4} on-error={}
 :do { add address=91.202.128.0/24 list=RUv4} on-error={}
 :do { add address=91.203.63.0/24 list=RUv4} on-error={}
-:do { add address=91.203.68.0/23 list=RUv4} on-error={}
+:do { add address=91.203.69.0/24 list=RUv4} on-error={}
 :do { add address=91.203.71.0/24 list=RUv4} on-error={}
 :do { add address=91.204.46.0/24 list=RUv4} on-error={}
 :do { add address=91.204.209.0/24 list=RUv4} on-error={}
@@ -8532,7 +8532,6 @@
 :do { add address=103.30.127.0/24 list=RUv4} on-error={}
 :do { add address=103.30.147.0/24 list=RUv4} on-error={}
 :do { add address=103.31.76.0/24 list=RUv4} on-error={}
-:do { add address=103.31.78.0/24 list=RUv4} on-error={}
 :do { add address=103.35.76.0/24 list=RUv4} on-error={}
 :do { add address=103.35.85.0/24 list=RUv4} on-error={}
 :do { add address=103.37.40.0/24 list=RUv4} on-error={}
@@ -9796,7 +9795,6 @@
 :do { add address=135.106.178.0/24 list=RUv4} on-error={}
 :do { add address=135.106.185.0/24 list=RUv4} on-error={}
 :do { add address=135.106.210.0/24 list=RUv4} on-error={}
-:do { add address=135.106.229.0/24 list=RUv4} on-error={}
 :do { add address=135.115.95.0/24 list=RUv4} on-error={}
 :do { add address=135.125.1.0/24 list=RUv4} on-error={}
 :do { add address=135.125.6.0/24 list=RUv4} on-error={}
@@ -10115,6 +10113,7 @@
 :do { add address=139.144.207.0/24 list=RUv4} on-error={}
 :do { add address=139.144.210.0/24 list=RUv4} on-error={}
 :do { add address=139.150.83.0/24 list=RUv4} on-error={}
+:do { add address=139.162.37.0/24 list=RUv4} on-error={}
 :do { add address=139.162.66.0/24 list=RUv4} on-error={}
 :do { add address=139.162.115.0/24 list=RUv4} on-error={}
 :do { add address=139.162.137.0/24 list=RUv4} on-error={}
@@ -10585,6 +10584,7 @@
 :do { add address=146.70.246.0/24 list=RUv4} on-error={}
 :do { add address=146.71.80.0/24 list=RUv4} on-error={}
 :do { add address=146.71.86.0/24 list=RUv4} on-error={}
+:do { add address=146.75.3.0/24 list=RUv4} on-error={}
 :do { add address=146.75.29.0/24 list=RUv4} on-error={}
 :do { add address=146.75.45.0/24 list=RUv4} on-error={}
 :do { add address=146.75.49.0/24 list=RUv4} on-error={}
@@ -10652,7 +10652,6 @@
 :do { add address=147.45.48.0/23 list=RUv4} on-error={}
 :do { add address=147.45.61.0/24 list=RUv4} on-error={}
 :do { add address=147.45.69.0/24 list=RUv4} on-error={}
-:do { add address=147.45.99.0/24 list=RUv4} on-error={}
 :do { add address=147.45.100.0/24 list=RUv4} on-error={}
 :do { add address=147.45.102.0/23 list=RUv4} on-error={}
 :do { add address=147.45.111.0/24 list=RUv4} on-error={}
@@ -10663,7 +10662,6 @@
 :do { add address=147.45.157.0/24 list=RUv4} on-error={}
 :do { add address=147.45.158.0/24 list=RUv4} on-error={}
 :do { add address=147.45.164.0/24 list=RUv4} on-error={}
-:do { add address=147.45.175.0/24 list=RUv4} on-error={}
 :do { add address=147.45.189.0/24 list=RUv4} on-error={}
 :do { add address=147.45.213.0/24 list=RUv4} on-error={}
 :do { add address=147.45.214.0/24 list=RUv4} on-error={}
@@ -10957,6 +10955,7 @@
 :do { add address=151.101.64.0/22 list=RUv4} on-error={}
 :do { add address=151.101.73.0/24 list=RUv4} on-error={}
 :do { add address=151.101.81.0/24 list=RUv4} on-error={}
+:do { add address=151.101.105.0/24 list=RUv4} on-error={}
 :do { add address=151.101.121.0/24 list=RUv4} on-error={}
 :do { add address=151.101.128.0/22 list=RUv4} on-error={}
 :do { add address=151.101.153.0/24 list=RUv4} on-error={}
@@ -12806,7 +12805,6 @@
 :do { add address=174.30.178.0/24 list=RUv4} on-error={}
 :do { add address=174.34.132.0/24 list=RUv4} on-error={}
 :do { add address=174.35.84.0/24 list=RUv4} on-error={}
-:do { add address=174.35.118.0/24 list=RUv4} on-error={}
 :do { add address=174.62.6.0/24 list=RUv4} on-error={}
 :do { add address=174.127.184.0/24 list=RUv4} on-error={}
 :do { add address=174.127.198.0/24 list=RUv4} on-error={}
@@ -12903,7 +12901,6 @@
 :do { add address=176.53.146.0/24 list=RUv4} on-error={}
 :do { add address=176.53.159.0/24 list=RUv4} on-error={}
 :do { add address=176.53.228.0/24 list=RUv4} on-error={}
-:do { add address=176.53.230.0/24 list=RUv4} on-error={}
 :do { add address=176.53.239.0/24 list=RUv4} on-error={}
 :do { add address=176.56.160.0/24 list=RUv4} on-error={}
 :do { add address=176.56.229.0/24 list=RUv4} on-error={}
@@ -13126,7 +13123,6 @@
 :do { add address=178.47.113.0/24 list=RUv4} on-error={}
 :do { add address=178.57.217.0/24 list=RUv4} on-error={}
 :do { add address=178.57.219.0/24 list=RUv4} on-error={}
-:do { add address=178.57.220.0/24 list=RUv4} on-error={}
 :do { add address=178.57.222.0/23 list=RUv4} on-error={}
 :do { add address=178.58.182.0/24 list=RUv4} on-error={}
 :do { add address=178.62.37.0/24 list=RUv4} on-error={}
@@ -13812,7 +13808,7 @@
 :do { add address=185.93.164.0/24 list=RUv4} on-error={}
 :do { add address=185.93.226.0/24 list=RUv4} on-error={}
 :do { add address=185.94.109.0/24 list=RUv4} on-error={}
-:do { add address=185.94.236.0/23 list=RUv4} on-error={}
+:do { add address=185.94.236.0/24 list=RUv4} on-error={}
 :do { add address=185.94.239.0/24 list=RUv4} on-error={}
 :do { add address=185.95.156.0/24 list=RUv4} on-error={}
 :do { add address=185.95.158.0/23 list=RUv4} on-error={}
@@ -14084,7 +14080,7 @@
 :do { add address=185.172.114.0/24 list=RUv4} on-error={}
 :do { add address=185.172.129.0/24 list=RUv4} on-error={}
 :do { add address=185.173.21.0/24 list=RUv4} on-error={}
-:do { add address=185.173.36.0/23 list=RUv4} on-error={}
+:do { add address=185.173.36.0/24 list=RUv4} on-error={}
 :do { add address=185.173.38.0/24 list=RUv4} on-error={}
 :do { add address=185.173.92.0/23 list=RUv4} on-error={}
 :do { add address=185.173.94.0/24 list=RUv4} on-error={}
@@ -14407,7 +14403,6 @@
 :do { add address=185.245.107.0/24 list=RUv4} on-error={}
 :do { add address=185.246.45.0/24 list=RUv4} on-error={}
 :do { add address=185.246.66.0/23 list=RUv4} on-error={}
-:do { add address=185.246.118.0/24 list=RUv4} on-error={}
 :do { add address=185.246.128.0/24 list=RUv4} on-error={}
 :do { add address=185.246.130.0/24 list=RUv4} on-error={}
 :do { add address=185.246.188.0/24 list=RUv4} on-error={}
@@ -16056,7 +16051,6 @@
 :do { add address=199.223.215.0/24 list=RUv4} on-error={}
 :do { add address=199.224.117.0/24 list=RUv4} on-error={}
 :do { add address=199.231.235.0/24 list=RUv4} on-error={}
-:do { add address=199.232.47.0/24 list=RUv4} on-error={}
 :do { add address=199.232.73.0/24 list=RUv4} on-error={}
 :do { add address=199.232.114.0/24 list=RUv4} on-error={}
 :do { add address=199.232.141.0/24 list=RUv4} on-error={}
@@ -16666,6 +16660,7 @@
 :do { add address=210.29.187.0/24 list=RUv4} on-error={}
 :do { add address=210.37.210.0/24 list=RUv4} on-error={}
 :do { add address=210.55.2.0/24 list=RUv4} on-error={}
+:do { add address=210.65.240.0/24 list=RUv4} on-error={}
 :do { add address=210.71.227.0/24 list=RUv4} on-error={}
 :do { add address=210.76.195.0/24 list=RUv4} on-error={}
 :do { add address=210.80.21.0/24 list=RUv4} on-error={}
