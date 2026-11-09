@@ -31,3 +31,16 @@
 
 # Exir Dynamic IP
 pro.exir.io
+
+# IraniCard Panel API
+api.iranicard.ir
+panel.iranicard.ir
+
+# Snapp
+app.snapp.taxi
+snappfood.ir
+snapp.ir
+
+# MahanNet
+my.mahannet.ir
+mahannet.ir
