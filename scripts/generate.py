@@ -155,33 +155,56 @@ def process_country(entry):
         return 0
 
     ipv4_ranges = compact_ranges(ipv4_ranges)
-    if ipv6_ranges is not None:
+    has_v6 = ipv6_ranges is not None
+    if has_v6:
         ipv6_ranges = compact_ranges(ipv6_ranges)
+
+    v4_ok = bool(ipv4_ranges)
+    v6_ok = has_v6 and bool(ipv6_ranges)
+    if not v4_ok and not v6_ok:
+        print(
+            f"  Error: fetched no IP ranges for {label}; keeping existing lists",
+            file=sys.stderr,
+        )
+        return 0
+    if not v4_ok:
+        print(
+            f"  Error: fetched no IPv4 ranges for {label}; keeping existing IPv4 lists",
+            file=sys.stderr,
+        )
+    if has_v6 and not v6_ok:
+        print(
+            f"  Error: fetched no IPv6 ranges for {label}; keeping existing IPv6 lists",
+            file=sys.stderr,
+        )
 
     additions, exemptions = load_overrides(code)
 
-    v4_add = [(n, r) for n, r in additions if n.version == 4]
-    v4_exc = [(n, r) for n, r in exemptions if n.version == 4]
-    v4_lines = apply_overrides(ipv4_ranges, v4_add, v4_exc)
+    v4_lines = None
+    if v4_ok:
+        v4_add = [(n, r) for n, r in additions if n.version == 4]
+        v4_exc = [(n, r) for n, r in exemptions if n.version == 4]
+        v4_lines = apply_overrides(ipv4_ranges, v4_add, v4_exc)
 
     v6_lines = None
-    if ipv6_ranges is not None and list_v6:
+    if v6_ok and list_v6:
         v6_add = [(n, r) for n, r in additions if n.version == 6]
         v6_exc = [(n, r) for n, r in exemptions if n.version == 6]
         v6_lines = apply_overrides(ipv6_ranges, v6_add, v6_exc)
 
     updates = 0
 
-    if write_if_changed(LISTS_DIR / f"{code}.ipv4.txt", label, "IPv4", v4_lines):
-        print(f"  Updated lists/{code}.ipv4.txt")
-        updates += 1
+    if v4_lines is not None:
+        if write_if_changed(LISTS_DIR / f"{code}.ipv4.txt", label, "IPv4", v4_lines):
+            print(f"  Updated lists/{code}.ipv4.txt")
+            updates += 1
 
     if v6_lines is not None:
         if write_if_changed(LISTS_DIR / f"{code}.ipv6.txt", label, "IPv6", v6_lines):
             print(f"  Updated lists/{code}.ipv6.txt")
             updates += 1
 
-    if list_v4:
+    if list_v4 and v4_lines is not None:
         v4_rsc = build_routeros_lines(v4_lines, list_v4, 4)
         if write_if_changed(ROUTEROS_DIR / f"{code}.ipv4.rsc", label, "IPv4", v4_rsc):
             print(f"  Updated routeros/{code}.ipv4.rsc")
@@ -193,10 +216,11 @@ def process_country(entry):
             print(f"  Updated routeros/{code}.ipv6.rsc")
             updates += 1
 
-    v4_sb = build_singbox_ruleset(v4_lines)
-    if write_text_if_changed(SINGBOX_DIR / f"{code}.ipv4.json", v4_sb):
-        print(f"  Updated sing-box/{code}.ipv4.json")
-        updates += 1
+    if v4_lines is not None:
+        v4_sb = build_singbox_ruleset(v4_lines)
+        if write_text_if_changed(SINGBOX_DIR / f"{code}.ipv4.json", v4_sb):
+            print(f"  Updated sing-box/{code}.ipv4.json")
+            updates += 1
 
     if v6_lines is not None:
         v6_sb = build_singbox_ruleset(v6_lines)

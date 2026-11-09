@@ -226,6 +226,57 @@ class TestProcessCountry:
         updates = process_country(entry)
         assert updates == 0
 
+    def test_empty_fetch_keeps_existing_lists(self, tmp_path, monkeypatch):
+        import generate
+
+        lists = tmp_path / "lists"
+        lists.mkdir()
+        existing = lists / "xx.ipv4.txt"
+        original = "# Country: Test (XX)\n# Type: IPv4\n10.0.0.0/8\n"
+        existing.write_text(original)
+
+        monkeypatch.setattr(generate, "LISTS_DIR", lists)
+        monkeypatch.setattr(generate, "ROUTEROS_DIR", tmp_path / "routeros")
+        monkeypatch.setattr(generate, "SINGBOX_DIR", tmp_path / "sing-box")
+        monkeypatch.setattr(generate, "OVERRIDES_DIR", tmp_path / "overrides")
+        monkeypatch.setattr(generate, "resolve_domain", lambda d: ([N("1.2.3.4/32")], []))
+
+        (tmp_path / "overrides").mkdir()
+        (tmp_path / "overrides" / "xx.additions.txt").write_text(
+            "# Extra\n172.16.0.0/12\nexample.com\n"
+        )
+
+        entry = self._make_entry(tmp_path, v4=[])
+        updates = process_country(entry)
+
+        assert updates == 0
+        assert existing.read_text() == original
+        assert not (tmp_path / "routeros" / "xx.ipv4.rsc").exists()
+        assert not (tmp_path / "sing-box" / "xx.ipv4.json").exists()
+
+    def test_empty_ipv6_keeps_existing_ipv6_lists(self, tmp_path, monkeypatch):
+        import generate
+
+        lists = tmp_path / "lists"
+        lists.mkdir()
+        existing = lists / "xx.ipv6.txt"
+        original = "# Country: Test (XX)\n# Type: IPv6\n2001:db8::/32\n"
+        existing.write_text(original)
+
+        monkeypatch.setattr(generate, "LISTS_DIR", lists)
+        monkeypatch.setattr(generate, "ROUTEROS_DIR", tmp_path / "routeros")
+        monkeypatch.setattr(generate, "SINGBOX_DIR", tmp_path / "sing-box")
+        monkeypatch.setattr(generate, "OVERRIDES_DIR", tmp_path / "overrides")
+
+        entry = self._make_entry(tmp_path, list_v6="Tv6", v6=[])
+        updates = process_country(entry)
+
+        assert updates == 3
+        assert existing.read_text() == original
+        assert (tmp_path / "lists" / "xx.ipv4.txt").exists()
+        assert not (tmp_path / "routeros" / "xx.ipv6.rsc").exists()
+        assert not (tmp_path / "sing-box" / "xx.ipv6.json").exists()
+
     def test_fetch_failure(self, tmp_path, monkeypatch):
         import generate
 
