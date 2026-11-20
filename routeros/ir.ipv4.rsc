@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv4
-# Last updated: 2026-11-19T00:01:13Z
-# Hash: sha256:c30d20f8924df0072e614b53cba815b4a95a98f2be1832f5dacc974fb8d58a7d
+# Last updated: 2026-11-20T00:28:33Z
+# Hash: sha256:fc4a502cb90e75455989315bbaa70ca361de157f71ec89c152487f54b57b18ea
 
 /ip firewall address-list remove [/ip firewall address-list find list=IRv4]
 /ip firewall address-list
@@ -28,9 +28,7 @@
 :do { add address=5.56.132.0/24 list=IRv4} on-error={}
 :do { add address=5.56.134.0/23 list=IRv4} on-error={}
 :do { add address=5.57.32.0/21 list=IRv4} on-error={}
-:do { add address=5.61.24.0/23 list=IRv4} on-error={}
-:do { add address=5.61.26.0/24 list=IRv4} on-error={}
-:do { add address=5.61.28.0/22 list=IRv4} on-error={}
+:do { add address=5.61.24.0/21 list=IRv4} on-error={}
 :do { add address=5.62.160.0/19 list=IRv4} on-error={}
 :do { add address=5.62.192.0/18 list=IRv4} on-error={}
 :do { add address=5.63.8.0/21 list=IRv4} on-error={}
@@ -251,6 +249,7 @@
 :do { add address=45.147.76.0/22 list=IRv4} on-error={}
 :do { add address=45.148.248.0/22 list=IRv4} on-error={}
 :do { add address=45.149.76.0/22 list=IRv4} on-error={}
+:do { add address=45.150.88.0/22 list=IRv4} on-error={}
 :do { add address=45.150.150.0/24 list=IRv4} on-error={}
 :do { add address=45.155.192.0/22 list=IRv4} on-error={}
 :do { add address=45.156.116.0/22 list=IRv4} on-error={}
@@ -321,6 +320,7 @@
 :do { add address=46.102.128.0/20 list=IRv4} on-error={}
 :do { add address=46.102.184.0/22 list=IRv4} on-error={}
 :do { add address=46.143.0.0/17 list=IRv4} on-error={}
+:do { add address=46.143.244.0/23 list=IRv4} on-error={}
 :do { add address=46.148.32.0/20 list=IRv4} on-error={}
 :do { add address=46.164.64.0/18 list=IRv4} on-error={}
 :do { add address=46.167.128.0/19 list=IRv4} on-error={}
@@ -809,6 +809,7 @@
 :do { add address=91.217.166.0/24 list=IRv4} on-error={}
 :do { add address=91.217.177.0/24 list=IRv4} on-error={}
 :do { add address=91.219.116.0/24 list=IRv4} on-error={}
+:do { add address=91.220.79.0/24 list=IRv4} on-error={}
 :do { add address=91.220.113.0/24 list=IRv4} on-error={}
 :do { add address=91.220.243.0/24 list=IRv4} on-error={}
 :do { add address=91.221.240.0/23 list=IRv4} on-error={}
@@ -877,8 +878,7 @@
 :do { add address=92.114.22.0/23 list=IRv4} on-error={}
 :do { add address=92.114.24.0/21 list=IRv4} on-error={}
 :do { add address=92.114.48.0/22 list=IRv4} on-error={}
-:do { add address=92.119.57.0/24 list=IRv4} on-error={}
-:do { add address=92.119.58.0/23 list=IRv4} on-error={}
+:do { add address=92.119.56.0/22 list=IRv4} on-error={}
 :do { add address=92.119.68.0/22 list=IRv4} on-error={}
 :do { add address=92.242.192.0/19 list=IRv4} on-error={}
 :do { add address=92.246.144.0/22 list=IRv4} on-error={}
@@ -904,6 +904,7 @@
 :do { add address=93.118.184.0/22 list=IRv4} on-error={}
 :do { add address=93.119.32.0/19 list=IRv4} on-error={}
 :do { add address=93.126.0.0/18 list=IRv4} on-error={}
+:do { add address=93.187.70.0/24 list=IRv4} on-error={}
 :do { add address=93.190.24.0/23 list=IRv4} on-error={}
 :do { add address=94.24.16.0/21 list=IRv4} on-error={}
 :do { add address=94.24.80.0/20 list=IRv4} on-error={}
@@ -1360,8 +1361,7 @@
 :do { add address=185.72.80.0/22 list=IRv4} on-error={}
 :do { add address=185.73.0.0/22 list=IRv4} on-error={}
 :do { add address=185.73.76.0/22 list=IRv4} on-error={}
-:do { add address=185.73.112.0/24 list=IRv4} on-error={}
-:do { add address=185.73.114.0/24 list=IRv4} on-error={}
+:do { add address=185.73.112.0/22 list=IRv4} on-error={}
 :do { add address=185.73.226.0/24 list=IRv4} on-error={}
 :do { add address=185.74.164.0/22 list=IRv4} on-error={}
 :do { add address=185.74.221.0/24 list=IRv4} on-error={}
@@ -2081,6 +2081,7 @@
 :do { add address=212.33.210.0/23 list=IRv4} on-error={}
 :do { add address=212.33.212.0/22 list=IRv4} on-error={}
 :do { add address=212.33.216.0/21 list=IRv4} on-error={}
+:do { add address=212.46.45.0/24 list=IRv4} on-error={}
 :do { add address=212.80.1.0/24 list=IRv4} on-error={}
 :do { add address=212.80.2.0/23 list=IRv4} on-error={}
 :do { add address=212.80.4.0/23 list=IRv4} on-error={}
