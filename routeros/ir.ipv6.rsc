@@ -1,14 +1,13 @@
 # Country: Iran (IR)
 # Type: IPv6
-# Last updated: 2026-11-22T23:26:13Z
-# Hash: sha256:3a461c78f4cb889b013a968e468977f70f6537a7bad38349a29be2ffd9be52d4
+# Last updated: 2026-11-23T05:58:54Z
+# Hash: sha256:bae3bb7a9ff3f6a7ecc2a3c8dce672a3e305388a6a8b0c61f70f2597690cd8f0
 
 /ipv6 firewall address-list remove [/ipv6 firewall address-list find list=IRv6]
 /ipv6 firewall address-list
 :do { add address=2001:678:428::/48 list=IRv6} on-error={}
 :do { add address=2001:3040::/29 list=IRv6} on-error={}
 :do { add address=2001:30c0::/48 list=IRv6} on-error={}
-:do { add address=2001:30c0:ffff::/48 list=IRv6} on-error={}
 :do { add address=2001:39c0::/29 list=IRv6} on-error={}
 :do { add address=2001:4188::/48 list=IRv6} on-error={}
 :do { add address=2001:4188:2::/48 list=IRv6} on-error={}
@@ -22,7 +21,6 @@
 :do { add address=2a00:15c8::/29 list=IRv6} on-error={}
 :do { add address=2a00:52e0::/32 list=IRv6} on-error={}
 :do { add address=2a00:7040::/32 list=IRv6} on-error={}
-:do { add address=2a00:7d40::/48 list=IRv6} on-error={}
 :do { add address=2a00:7d80::/47 list=IRv6} on-error={}
 :do { add address=2a00:b140::/32 list=IRv6} on-error={}
 :do { add address=2a01:3c8::/32 list=IRv6} on-error={}
@@ -113,7 +111,6 @@
 :do { add address=2a04:f080::/29 list=IRv6} on-error={}
 :do { add address=2a05:e00::/32 list=IRv6} on-error={}
 :do { add address=2a05:1a00::/26 list=IRv6} on-error={}
-:do { add address=2a05:2584::/30 list=IRv6} on-error={}
 :do { add address=2a05:2d80::/48 list=IRv6} on-error={}
 :do { add address=2a05:3e40::/29 list=IRv6} on-error={}
 :do { add address=2a05:5440::/32 list=IRv6} on-error={}
