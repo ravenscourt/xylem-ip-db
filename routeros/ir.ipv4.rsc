@@ -1,7 +1,7 @@
 # Country: Iran (IR)
 # Type: IPv4
-# Last updated: 2026-11-25T02:01:46Z
-# Hash: sha256:4927fd56d320267e3a349ec8bc57191b7a672afbe3037e451bf352f20318918f
+# Last updated: 2026-11-25T17:04:12Z
+# Hash: sha256:98a7d2e399785534a351c5c64f2209c562ce9b2e31b2fac9533513f5f8659235
 
 /ip firewall address-list remove [/ip firewall address-list find list=IRv4]
 /ip firewall address-list
@@ -979,7 +979,7 @@
 :do { add address=94.184.16.0/20 list=IRv4} on-error={}
 :do { add address=94.184.32.0/22 list=IRv4} on-error={}
 :do { add address=94.184.36.0/24 list=IRv4} on-error={}
-:do { add address=94.184.38.0/24 list=IRv4} on-error={}
+:do { add address=94.184.38.0/23 list=IRv4} on-error={}
 :do { add address=94.184.40.0/21 list=IRv4} on-error={}
 :do { add address=94.184.64.0/18 list=IRv4} on-error={}
 :do { add address=94.184.128.0/17 list=IRv4} on-error={}
@@ -1073,7 +1073,6 @@
 :do { add address=100.64.0.0/10 list=IRv4 comment="Mobile Network CGNAT"} on-error={}
 :do { add address=103.111.69.0/24 list=IRv4} on-error={}
 :do { add address=103.111.71.0/24 list=IRv4} on-error={}
-:do { add address=103.130.144.0/24 list=IRv4} on-error={}
 :do { add address=103.130.146.0/23 list=IRv4} on-error={}
 :do { add address=103.132.228.0/23 list=IRv4} on-error={}
 :do { add address=103.140.128.0/23 list=IRv4} on-error={}
